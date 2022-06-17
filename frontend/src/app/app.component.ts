@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  b = [{c: 1},{c: 2},{c: 3}];
   title = 'frontend';
 }

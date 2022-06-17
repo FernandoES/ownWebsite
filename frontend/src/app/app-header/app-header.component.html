@@ -1,0 +1,10 @@
+<nav>
+    <div class="nav-wrapper blue" [fxLayout]="'row'" fxLayoutGap="20%">
+        <img src="assets/logo2.png" alt="logo" class="left brand-logo">
+        <ul class="center">
+            <li *ngFor="let option of options">
+                <a [href]="option.url">{{ option.slug }}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
