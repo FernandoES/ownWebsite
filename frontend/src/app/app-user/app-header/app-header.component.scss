@@ -1,0 +1,28 @@
+.app-header {
+    img {
+        max-height: 100%;
+        width: auto;
+        padding-top:0.2rem;
+    }
+    nav {
+        .brand-logo {
+            position: relative;
+        }
+        ul {
+            position: relative;
+            left: 5%;
+            li a{
+                font-size: large;
+            }
+        }
+        button {
+            position: absolute;
+            right: 0px;
+            top: 20%;
+            i {
+                position: relative;
+                top: -30%;
+            }
+        }
+    }
+}
