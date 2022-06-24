@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 
 export class AppUserComponent {
     constructor() {
-        console.log("starting");
+        console.log("loading user component");
      }
 }

@@ -9,9 +9,12 @@ const routes: Routes = [
     },
     {
       path: 'user', 
-      loadChildren: () => {console.log("loading app user module"); return import('./app-user/app-user.module').then(m => m.AppUserModule);}
+      loadChildren: () => import('./app-user/app-user.module').then(m => {console.log("loading user module");return m.AppUserModule;})
     },
-    //{path: 'edit', component:}}
+    {
+      path: 'edit', 
+      loadChildren: () => import('./app-edit/app-edit.module').then(m => {console.log("loading edit module");return m.AppEditModule;})
+    },
 ];
 
 @NgModule({
