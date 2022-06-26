@@ -10,7 +10,7 @@ export interface IArticle {
 export class AppArticleService {
     constructor() { }
 
-    fetchSigleArticle(): Observable<IArticle> {
+    fetchSigleArticle(id: string): Observable<IArticle> {
         return of({title: "Test Blog Article Title", body: "Blog Article Body. \n long, long. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAA"});
     }
     

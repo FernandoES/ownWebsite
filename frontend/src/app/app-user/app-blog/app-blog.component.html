@@ -1,5 +1,6 @@
-<h1>Available Entries</h1>
-<ul><li *ngFor="let item of blogList$ | async as list">
+<h1 class="text-center bold italic">Available Entries</h1>
+<ul><li *ngFor="let item of blogList$ | async as list"> <button type="button" (click)="goToArticle(item)">
     <h2>{{item.title}}</h2>
-    <p>{{item.text}}</p>
+    <p>{{item.text}}...</p>
+</button>
 </li></ul>

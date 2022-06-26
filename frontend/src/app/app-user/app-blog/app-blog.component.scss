@@ -1,0 +1,12 @@
+.app-blog {
+    li>button {
+        background:none; 
+        border:none;
+        :hover{
+            opacity: 0.5;
+        }
+        p {
+            margin-left: 1rem;
+        }
+    }
+}

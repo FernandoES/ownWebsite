@@ -16,7 +16,7 @@ export const appUserRoutes: Routes = [
                 loadChildren: () => import('./app-suggestions/app-suggestions.module').then(m => {console.log("loading suggestions module");return m.AppSuggestionsModule;})
             },
             {
-                path: 'article',
+                path: 'article/:id',
                 loadChildren: () => import('./app-article/app-article.module').then(m => {console.log("loading article module"); return m.AppArticleModule;})
             }
         ]
