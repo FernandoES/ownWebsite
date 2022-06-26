@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 
 export interface LinkOption  {
   url: string,
@@ -20,26 +19,23 @@ export interface LinkOption  {
 export class AppHeaderComponent implements OnInit {
   options:LinkOption[]= [
     {
-      url: "#/user/blog",// investigar como sustituir por el ultimo paso
+      url: "blog",
       nameTag: "blog",
       slug: "blog"
     },
     {
-      url: "#/user/suggestions",
+      url: "suggestions",
       nameTag: "suggestions",
       slug: "suggestions"
     },
     {
-      url: "#/edit",
+      url: "../edit",
       nameTag: "edit",
       slug: "edit"
     }
   ];
 
-  get currentUrl() {
-    return `#/${this._router.url}`;
-  }
-  constructor(_ref: ChangeDetectorRef, private _router: Router) { }
+  constructor(_ref: ChangeDetectorRef) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { }
 }
