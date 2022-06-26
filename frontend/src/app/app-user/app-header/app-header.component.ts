@@ -19,17 +19,17 @@ export interface LinkOption  {
 export class AppHeaderComponent implements OnInit {
   options:LinkOption[]= [
     {
-      url: "blog",
+      url: "user/blog",
       nameTag: "blog",
       slug: "blog"
     },
     {
-      url: "suggestions",
+      url: "user/suggestions",
       nameTag: "suggestions",
       slug: "suggestions"
     },
     {
-      url: "../edit",
+      url: "edit",
       nameTag: "edit",
       slug: "edit"
     }

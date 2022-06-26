@@ -1,13 +1,10 @@
 <nav>
     <div class="nav-wrapper blue">
-        <img src="assets/logo2.png" alt="logo" class="left brand-logo" [fxLayout]="'row'" fxLayoutGap="10%">
+        <a href=""><img src="assets/logo2.png" alt="logo" class="left brand-logo" [fxLayout]="'row'" fxLayoutGap="10%"></a>
         <ul class="center">
             <li *ngFor="let option of options">
                 <a [routerLink]="option.url">{{ option.slug }}</a>
             </li>
         </ul>
-        <button class="waves-effect waves-light btn blue darken-1">
-            <em class="Medium material-icons">dehaze</em>
-        </button>
     </div>
 </nav>
