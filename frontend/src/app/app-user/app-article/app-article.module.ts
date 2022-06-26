@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AppArticleRoutingModule } from './app-article-routing.module';
 import { AppArticleComponent } from './app-article.component';
+import { AppArticleService } from './app-article.service';
 
 
 @NgModule({
@@ -12,6 +13,9 @@ import { AppArticleComponent } from './app-article.component';
   imports: [
     CommonModule,
     AppArticleRoutingModule
+  ],
+  providers: [
+    AppArticleService
   ]
 })
 export class AppArticleModule { }

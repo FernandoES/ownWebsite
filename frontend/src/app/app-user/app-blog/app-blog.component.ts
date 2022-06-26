@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppBlogService } from './app-blog.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-app-blog',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppBlogComponent implements OnInit {
 
-  constructor() { console.log("loading blog component"); }
+  public blogList$ = this._service.fetchArticlesList().pipe(tap(entry =>console.log("entry", entry)));
 
-  ngOnInit(): void {
-  }
+  constructor(private _service: AppBlogService) { console.log("loading blog component"); }
+
+  ngOnInit(): void { }
 
 }

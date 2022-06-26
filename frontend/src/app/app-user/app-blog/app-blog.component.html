@@ -1,1 +1,5 @@
-<p>app-blog works!</p>
+<h1>Available Entries</h1>
+<ul><li *ngFor="let item of blogList$ | async as list">
+    <h2>{{item.title}}</h2>
+    <p>{{item.text}}</p>
+</li></ul>
