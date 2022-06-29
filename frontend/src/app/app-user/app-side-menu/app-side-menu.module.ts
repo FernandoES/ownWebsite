@@ -7,7 +7,6 @@ import { AppSideMenuRoutingModule } from './app-side-menu-routing.module';
 import { AppSideMenuComponent } from './app-side-menu.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { AppSideMenuService } from './app-side-menu.service';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,6 @@ import { AppSideMenuService } from './app-side-menu.service';
     AppSideMenuRoutingModule,
     FormsModule
   ],
-  providers: [
-    AppSideMenuService
-  ]
+  providers: [ ]
 })
 export class AppSideMenuModule { }

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { AppBlogRoutingModule } from './app-blog-routing.module';
 import { AppBlogComponent } from './app-blog.component';
-import { AppBlogService } from './app-blog.service';
 
 
 @NgModule({
@@ -15,8 +14,6 @@ import { AppBlogService } from './app-blog.service';
     CommonModule,
     AppBlogRoutingModule
   ],
-  providers: [
-    AppBlogService
-  ]
+  providers: [ ]
 })
 export class AppBlogModule { }
