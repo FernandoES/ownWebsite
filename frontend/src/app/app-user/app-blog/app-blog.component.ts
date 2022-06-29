@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AppBlogService, IBlogEntry } from './app-blog.service';
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IBlogEntry, UserService } from '../app-user.service';
 
 @Component({
   selector: 'app-blog',
@@ -16,10 +16,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AppBlogComponent implements OnInit {
 
-  public blogList$: Observable<IBlogEntry[]> = this._service.fetchArticlesList().pipe(tap(entry =>console.log("entry", entry)));
+  public blogList$: Observable<IBlogEntry[]> = this._userService.fetchArticlesList().pipe(tap(entry =>console.log("entry", entry)));
 
   constructor(
-    private _service: AppBlogService, 
+    private _userService: UserService, 
     private _router: Router,
     private route: ActivatedRoute
     ) { 

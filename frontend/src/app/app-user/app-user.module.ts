@@ -4,11 +4,12 @@ import { AppSideMenuModule } from './app-side-menu/app-side-menu.module';
 import { AppUserRoutingModule } from './app-user-routing.module';
 
 import { AppUserComponent } from './app-user.component';
+import { UserService } from './app-user.service';
 
 @NgModule({
     imports: [AppHeaderModule, AppUserRoutingModule, AppSideMenuModule],
     declarations: [AppUserComponent],
-    providers: [],
+    providers: [UserService],
     bootstrap: [AppUserComponent]
 
 })
