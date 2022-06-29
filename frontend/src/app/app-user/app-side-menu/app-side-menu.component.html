@@ -1,4 +1,7 @@
-<button class="waves-effect waves-light btn blue darken-1" [matMenuTriggerFor]="userMenu">
-    <em class="Medium material-icons">dehaze</em>
+<button mat-icon-button class="waves-effect waves-light btn blue darken-1" [matMenuTriggerFor]="userMenu" >
+    <mat-icon class="Medium material-icons">dehaze</mat-icon>
 </button>
-<mat-menu #userMenu="matMenu" [fxLayout]="'row'"></mat-menu>
+<mat-menu class="mat-menu" #userMenu="matMenu" yPosition="below">
+        <div mat-menu-item (click)="goToLatestArticle()">Latest Article</div>
+        <div mat-menu-item (click)="goToRandomArticle()">Random Article</div>
+</mat-menu>

@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-
 @Component({
   selector: 'app-side-menu',
   templateUrl: './app-side-menu.component.html',
@@ -11,7 +10,14 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   }
 })
 export class AppSideMenuComponent {
-
   constructor() { }
+
+  goToLatestArticle() {
+
+  }
+  
+  goToRandomArticle(){
+
+  }
 
 }

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppSideMenuRoutingModule } from './app-side-menu-routing.module';
 import { AppSideMenuComponent } from './app-side-menu.component';
-
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -14,6 +14,7 @@ import { AppSideMenuComponent } from './app-side-menu.component';
   imports: [
     CommonModule,
     MatMenuModule,
+    MatIconModule,
     AppSideMenuRoutingModule
   ]
 })
