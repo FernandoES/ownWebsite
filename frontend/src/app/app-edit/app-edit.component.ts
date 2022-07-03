@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
+enum LoginOption {
+  LOGIN,
+  RESTORE,
+  CREATE
+}
 @Component({
   selector: 'app-edit',
   templateUrl: './app-edit.component.html',
-  styleUrls: ['./app-edit.component.scss']
+  styleUrls: ['./app-edit.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'app-edit'
+  }
 })
-export class AppEditComponent implements OnInit {
-
+export class AppEditComponent {
+  selectedLoginOption: LoginOption = LoginOption.LOGIN;
+  LoginOption = LoginOption;
+  userMail: string;
+  userPassword: string;
   constructor() { }
+  goToRestorePasswordMenu() {
+    this.selectedLoginOption = LoginOption.RESTORE;
+  }
 
-  ngOnInit(): void {
+  goTocreateAccountMenu() {
+    this.selectedLoginOption = LoginOption.CREATE;
+  }
+
+  goToLoginMenu() {
+    this.selectedLoginOption = LoginOption.LOGIN;
   }
 
 }
