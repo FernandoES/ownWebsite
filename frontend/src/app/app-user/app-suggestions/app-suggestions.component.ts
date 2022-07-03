@@ -1,15 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AppSuggestionsService, ISuggestion } from './app-suggestions.service';
 
 @Component({
   selector: 'app-suggestions',
   templateUrl: './app-suggestions.component.html',
-  styleUrls: ['./app-suggestions.component.scss']
+  styleUrls: ['./app-suggestions.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'app-suggestions'
+  } 
 })
-export class AppSuggestionsComponent implements OnInit {
+export class AppSuggestionsComponent{
+  @ViewChild('suggestionForm', { static: true }) suggestionForm: NgForm;
+  suggestion: ISuggestion;
+  constructor(private _service: AppSuggestionsService) {
+    this._resetSuggestion();
+   }
 
-  constructor() { }
+  sendSuggestion(){
+    if(this.suggestionForm.invalid){
+      return;
+    }
+    const suggestion = this._buildSuggestionForBackend();
+    this._service.sendSuggestions(suggestion).subscribe(_ => {
+      this.resetForm();
+    });
+  }
 
-  ngOnInit(): void {
+  resetForm(){
+    this._resetSuggestion();
+    this.suggestionForm.form.markAsPristine();
+  }
+
+  private _resetSuggestion() {
+    this.suggestion = {
+      userName: "",
+      email: "",
+      suggestion: ""
+    }
+  }
+  
+  private _buildSuggestionForBackend(): ISuggestion {
+    return {
+      userName: this.suggestionForm.value.userNameInputName,
+      email: this.suggestionForm.value.emailInputName,
+      suggestion: this.suggestionForm.value.suggestion
+    }
   }
 
 }
