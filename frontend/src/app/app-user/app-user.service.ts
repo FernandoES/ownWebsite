@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 export interface IBlogEntry {
     title: string;
     text: string;
-    id: string;
+    id?: string;
 }
 
 @Injectable()

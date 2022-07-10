@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { AppAccountService } from './app-account.service';
 
 enum LoginOption {
   LOGIN,
@@ -20,7 +21,7 @@ export class AppEditComponent {
   LoginOption = LoginOption;
   userMail: string;
   userPassword: string;
-  constructor() { }
+  constructor(public service: AppAccountService) { }
   goToRestorePasswordMenu() {
     this.selectedLoginOption = LoginOption.RESTORE;
   }

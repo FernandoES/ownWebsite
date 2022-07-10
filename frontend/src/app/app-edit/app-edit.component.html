@@ -1,11 +1,16 @@
 <div class="headerDiv"></div>
-<div [fxLayout]="'row'" fxLayoutGap="10px">
-    <a (click)="goToRestorePasswordMenu()">Restore password</a>
-    <a (click)="goTocreateAccountMenu()">Create account</a>
-    <a (click)="goToLoginMenu()">Login</a>
-</div>
-<ng-container [ngSwitch]="selectedLoginOption">
-    <app-login *ngSwitchCase="LoginOption.LOGIN">login</app-login>
-    <app-restore-password *ngSwitchCase="LoginOption.RESTORE">restore</app-restore-password>
-    <app-create-account *ngSwitchCase="LoginOption.CREATE">create</app-create-account>
+<ng-container *ngIf="service.logged">
+    <app-create-blog></app-create-blog>
+</ng-container>
+<ng-container *ngIf="!service.logged">
+    <div [fxLayout]="'row'" fxLayoutGap="10px">
+        <a (click)="goToRestorePasswordMenu()">Restore password</a>
+        <a (click)="goTocreateAccountMenu()">Create account</a>
+        <a (click)="goToLoginMenu()">Login</a>
+    </div>
+    <ng-container [ngSwitch]="selectedLoginOption">
+        <app-login *ngSwitchCase="LoginOption.LOGIN">login</app-login>
+        <app-restore-password *ngSwitchCase="LoginOption.RESTORE">restore</app-restore-password>
+        <app-create-account *ngSwitchCase="LoginOption.CREATE">create</app-create-account>
+    </ng-container>
 </ng-container>
