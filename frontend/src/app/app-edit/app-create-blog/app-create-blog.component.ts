@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
+import { AppCreateBlogService } from './app-create-blog.service';
 
 @Component({
   selector: 'app-create-blog',
@@ -16,7 +17,7 @@ export class AppCreateBlogComponent {
   @ViewChild('createBlogForm', { static: true }) createBlogForm: NgForm;
 
   blog: IBlogEntry;
-  constructor() {
+  constructor(private _service: AppCreateBlogService) {
     this.resetValues();
    }
   resetForm() {
@@ -28,5 +29,10 @@ export class AppCreateBlogComponent {
       title: "",
       text: "",
   }
+
+}
+
+saveBlog() {
+  this._service.saveBlog(this.blog);
 }
 }

@@ -1,6 +1,6 @@
 <h1>Text Editor</h1>
 <h2>Create a new blog entry</h2>
-<form #createBlogForm="ngForm">
+<form #createBlogForm="ngForm" (ngSubmit)="saveBlog()">
     <div  [fxLayout]="'row'">
         <mat-form-field [fxLayout]="'row'" appearance="fill">
             <input #titleInput="ngModel" matInput="matInput" [(ngModel)]="blog.title" name="titleInput" placeholder="Title" required/>

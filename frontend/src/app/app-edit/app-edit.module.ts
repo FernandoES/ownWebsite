@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppAccountService } from './app-account.service';
 import { AppCreateBlogComponent } from './app-create-blog/app-create-blog.component';
 import { MatInputModule } from '@angular/material/input';
+import { AppCreateBlogService } from './app-create-blog/app-create-blog.service';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatInputModule } from '@angular/material/input';
 
   ],
   providers: [
-    AppAccountService
+    AppAccountService,
+    AppCreateBlogService
   ]
 })
 export class AppEditModule { }
