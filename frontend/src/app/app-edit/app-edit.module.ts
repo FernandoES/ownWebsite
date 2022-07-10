@@ -14,6 +14,8 @@ import { AppRestorePasswordComponent } from './app-restore-password/app-restore-
 import { AppCreateAccountComponent } from './app-create-account/app-create-account.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppAccountService } from './app-account.service';
+import { AppCreateBlogComponent } from './app-create-blog/app-create-blog.component';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -21,18 +23,21 @@ import { AppAccountService } from './app-account.service';
     AppEditComponent,
     AppLoginComponent,
     AppRestorePasswordComponent,
-    AppCreateAccountComponent
+    AppCreateAccountComponent,
+    AppCreateBlogComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     AppEditRoutingModule,
+    MatInputModule,
     FlexLayoutModule,
     MatCardModule,
     MatSlideToggleModule,
     MatIconModule,
     MatFormFieldModule,
     MatCheckboxModule,
+
   ],
   providers: [
     AppAccountService
