@@ -8,16 +8,21 @@ export const appUserRoutes: Routes = [
         component: AppUserComponent,
         children: [
             {
+                path: '',
+                redirectTo: 'blog',
+                pathMatch: 'full',
+            },
+            {
                 path: 'blog',
-                loadChildren: () => import('./app-blog/app-blog.module').then(m => {console.log("Loding blog module");return m.AppBlogModule;})
+                loadChildren: () => import('./app-blog/app-blog.module').then(m => m.AppBlogModule)
             },
             {
                 path: 'suggestions', 
-                loadChildren: () => import('./app-suggestions/app-suggestions.module').then(m => {console.log("loading suggestions module");return m.AppSuggestionsModule;})
+                loadChildren: () => import('./app-suggestions/app-suggestions.module').then(m => m.AppSuggestionsModule)
             },
             {
                 path: 'article/:id',
-                loadChildren: () => import('./app-article/app-article.module').then(m => {console.log("loading article module"); return m.AppArticleModule;})
+                loadChildren: () => import('./app-article/app-article.module').then(m => m.AppArticleModule)
             }
         ]
     }

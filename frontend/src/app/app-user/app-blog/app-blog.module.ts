@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AppBlogRoutingModule } from './app-blog-routing.module';
 import { AppBlogComponent } from './app-blog.component';
+import { ShowdownModule } from 'ngx-showdown';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AppBlogComponent } from './app-blog.component';
   exports: [AppBlogComponent],
   imports: [
     CommonModule,
-    AppBlogRoutingModule
+    AppBlogRoutingModule,
+    ShowdownModule
   ],
   providers: [ ]
 })

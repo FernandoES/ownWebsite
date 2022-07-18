@@ -9,11 +9,11 @@ const routes: Routes = [
     },
     {
       path: 'user', 
-      loadChildren: () => import('./app-user/app-user.module').then(m => {console.log("loading user module");return m.AppUserModule;})
+      loadChildren: () => import('./app-user/app-user.module').then(m => m.AppUserModule)
     },
     {
       path: 'edit', 
-      loadChildren: () => import('./app-edit/app-edit.module').then(m => {console.log("loading edit module");return m.AppEditModule;})
+      loadChildren: () => import('./app-edit/app-edit.module').then(m => m.AppEditModule)
     },
 ];
 

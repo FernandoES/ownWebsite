@@ -12,7 +12,5 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 })
 
 export class AppUserComponent {
-    constructor() {
-        console.log("loading user component");
-     }
+    constructor() { }
 }
