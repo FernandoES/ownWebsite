@@ -23,7 +23,7 @@ export class AppSuggestionsComponent{
     if(this.suggestionForm.invalid){
       return;
     }
-    const suggestion = this._buildSuggestionForBackend();
+    const suggestion = this.suggestionForm.value;
     this._service.sendSuggestions(suggestion).subscribe(_ => {
       this.resetForm();
     });
@@ -37,17 +37,8 @@ export class AppSuggestionsComponent{
   private _resetSuggestion() {
     this.suggestion = {
       userName: "",
-      email: "",
-      suggestion: ""
+      userMail: "",
+      body: "",
     }
   }
-  
-  private _buildSuggestionForBackend(): ISuggestion {
-    return {
-      userName: this.suggestionForm.value.userNameInputName,
-      email: this.suggestionForm.value.emailInputName,
-      suggestion: this.suggestionForm.value.suggestion
-    }
-  }
-
 }
