@@ -1,17 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { IBlogEntry } from '../app-user.service';
 
-export interface IArticle {
-    title: string;
-    body: string;
-}
 
 @Injectable()
 export class AppArticleService {
-    constructor() { }
+    apiBaseUrl = "/api/articles/article";
+    constructor(private _http : HttpClient) { }
 
-    fetchSigleArticle(id: string): Observable<IArticle> {
-        return of({title: "Test Blog Article Title", body: "Blog Article Body. \n long, long. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAA"});
+    fetchSigleArticle(id: string): Observable<IBlogEntry> {
+        return this._http.get<IBlogEntry>(`${this.apiBaseUrl}/${id}`);
     }
     
 }
