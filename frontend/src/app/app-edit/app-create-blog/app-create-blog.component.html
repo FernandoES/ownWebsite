@@ -7,7 +7,7 @@
             <mat-error><span [hidden]="!(titleInput.errors && titleInput.errors['required'])">Required Field</span></mat-error>
         </mat-form-field>
     </div> 
-        <textarea name="textBody" [(ngModel)]="blog.text" #textBodyInput="ngModel"></textarea>
+        <textarea name="textBody" [(ngModel)]="blog.body" #textBodyInput="ngModel"></textarea>
         <mat-error><span [hidden]="!(textBodyInput.errors && textBodyInput.errors['required'])">Required Field</span></mat-error>
   <div class="buttons" *ngIf="!createBlogForm.pristine">
     <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" (click)="resetForm()" type="button">Cancel</button>

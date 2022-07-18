@@ -27,12 +27,12 @@ export class AppCreateBlogComponent {
   resetValues(){
     this.blog = {
       title: "",
-      text: "",
+      body: "",
   }
 
 }
 
 saveBlog() {
-  this._service.saveBlog(this.blog);
+  this._service.saveBlog(this.blog).subscribe({next: () => console.log("Blog saved")});
 }
 }
