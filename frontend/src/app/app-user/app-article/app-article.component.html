@@ -1,2 +1,8 @@
-<h1>{{ article.title }}</h1>
-<p>{{ article.body }}</p>
+<ng-container *ngIf=" article$ | async as article" >
+    <h1>{{ article.title }}</h1>
+    <div [fxLayout]="'row'" name="author">
+        <p class="author">By {{ article.author }}</p>
+        <p class="date">&nbsp;at {{ article.date | date }}</p>
+    </div>
+    <showdown [value]="article.body"></showdown>
+</ng-container>
