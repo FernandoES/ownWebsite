@@ -25,7 +25,7 @@ export class AppRestorePasswordComponent {
     if(this.restoreForm.invalid) {
       return;
     }
-    this._service.restorePassword().subscribe(_ => {
+    this._service.restorePassword(this.userMail, this.oldPassword, this.newPassword).subscribe(_ => {
       this.resetForm();
     });
   }

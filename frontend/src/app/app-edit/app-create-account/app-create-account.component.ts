@@ -24,7 +24,7 @@ export class AppCreateAccountComponent {
     if(this.createForm.invalid) {
       return;
     }
-    this._service.createAccount().subscribe(_ => {
+    this._service.createAccount(this.userMail, this.password).subscribe(_ => {
       this.resetForm();
     });
   }

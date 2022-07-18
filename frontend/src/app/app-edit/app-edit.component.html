@@ -9,7 +9,7 @@
         <a (click)="goToLoginMenu()">Login</a>
     </div>
     <ng-container [ngSwitch]="selectedLoginOption">
-        <app-login *ngSwitchCase="LoginOption.LOGIN">login</app-login>
+        <app-login (onLogin)="update()" *ngSwitchCase="LoginOption.LOGIN">login</app-login>
         <app-restore-password *ngSwitchCase="LoginOption.RESTORE">restore</app-restore-password>
         <app-create-account *ngSwitchCase="LoginOption.CREATE">create</app-create-account>
     </ng-container>

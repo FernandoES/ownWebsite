@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { AppAccountService } from './app-account.service';
 
 enum LoginOption {
@@ -21,7 +21,7 @@ export class AppEditComponent {
   LoginOption = LoginOption;
   userMail: string;
   userPassword: string;
-  constructor(public service: AppAccountService) { }
+  constructor(public service: AppAccountService, private _ref: ChangeDetectorRef) { }
   goToRestorePasswordMenu() {
     this.selectedLoginOption = LoginOption.RESTORE;
   }
@@ -32,6 +32,10 @@ export class AppEditComponent {
 
   goToLoginMenu() {
     this.selectedLoginOption = LoginOption.LOGIN;
+  }
+
+  update() {
+    this._ref.markForCheck()
   }
 
 }
