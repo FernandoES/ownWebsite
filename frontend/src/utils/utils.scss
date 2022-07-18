@@ -13,3 +13,22 @@
 .m-sm {
     margin: 1rem;
 }
+
+.buttons{
+    margin: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    button{
+        width: 10rem;
+    }
+}
+
+.author {
+    font-size: smaller;
+    font-style: oblique;
+}
+
+.date {
+    font-size: smaller;
+}

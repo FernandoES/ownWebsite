@@ -1,6 +1,6 @@
 <h1 class="text-center bold italic">Available Entries</h1>
 <ul><li *ngFor="let item of blogList$ | async as list"> <button type="button" (click)="goToArticle(item)">
     <h2>{{item.title}}</h2>
-    <p>{{item.text}}...</p>
+    <showdown [value]="item.body"></showdown>
 </button>
 </li></ul>
