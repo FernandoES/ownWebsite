@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { AppArticleRoutingModule } from './app-article-routing.module';
 import { AppArticleComponent } from './app-article.component';
 import { AppArticleService } from './app-article.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ShowdownModule } from 'ngx-showdown';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { AppArticleService } from './app-article.service';
   ],
   imports: [
     CommonModule,
-    AppArticleRoutingModule
+    AppArticleRoutingModule,
+    FlexLayoutModule,
+    ShowdownModule
   ],
   providers: [
     AppArticleService
