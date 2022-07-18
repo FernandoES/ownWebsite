@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute,  } from '@angular/router';
-import { AppArticleService, IArticle } from './app-article.service';
+import { Observable, switchMap } from 'rxjs';
+import { IBlogEntry } from '../app-user.service';
+import { AppArticleService } from './app-article.service';
 
 @Component({
   selector: 'app-article',
@@ -12,16 +14,12 @@ import { AppArticleService, IArticle } from './app-article.service';
     class: 'app-article'
   }
 })
-export class AppArticleComponent implements OnInit {
+export class AppArticleComponent {
 
-  public article: IArticle = {} as IArticle;
+  public article$: Observable<IBlogEntry> = this._route.params.pipe(switchMap(params => 
+    this.service.fetchSigleArticle(params['id'])));
 
 
   constructor(public service: AppArticleService, private _route: ActivatedRoute) {   }
-
-  ngOnInit(): void {    
-    const id = this._route.snapshot.paramMap.get('id') ?? "";
-    this.service.fetchSigleArticle(id).subscribe(article => this.article = article);
-   }
 
 }

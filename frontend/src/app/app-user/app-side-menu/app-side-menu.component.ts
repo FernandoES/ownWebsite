@@ -27,7 +27,7 @@ export class AppSideMenuComponent {
 
   goToLatestArticle($event: Event) {
     $event.stopPropagation();
-    const selectedId = this.articles[this.articles.length - 1]?.id;
+    const selectedId = this.articles[this.articles.length - 1]?._id;
     if (selectedId){
       this.goToArticle(selectedId);
     }
@@ -35,7 +35,7 @@ export class AppSideMenuComponent {
   
   goToRandomArticle($event: Event){
     $event.stopPropagation();
-    const selectedId = this.articles[Math.floor(Math.random() * this.articles.length)]?.id;
+    const selectedId = this.articles[Math.floor(Math.random() * this.articles.length)]?._id;
     if(selectedId) {
       this.goToArticle(selectedId);
     }
