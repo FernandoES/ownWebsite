@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NotificationService } from 'src/utils/notification.service';
 import { AppAccountService } from '../app-account.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class AppCreateAccountComponent {
   @ViewChild('createForm', { static: true }) createForm: NgForm;
   userMail: string;
   password: string;
-  constructor(private _service: AppAccountService) { 
+  constructor(private _service: AppAccountService, private _notification: NotificationService) { 
     this._resetValues();
   }
 
@@ -24,14 +25,16 @@ export class AppCreateAccountComponent {
     if(this.createForm.invalid) {
       return;
     }
-    this._service.createAccount(this.userMail, this.password).subscribe(_ => {
+    this._service.createAccount(this.userMail, this.password).subscribe({next: _ => {
+      this._notification.success("Account created");
       this.resetForm();
-    });
+    }});
   }
 
   resetForm(){
     this._resetValues();
     this.createForm.form.markAsPristine();
+    this._notification.success("Values reset");
   }
 
   private _resetValues() {

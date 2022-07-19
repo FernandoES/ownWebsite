@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
+import { NotificationService } from 'src/utils/notification.service';
 import { AppCreateBlogService } from './app-create-blog.service';
 
 @Component({
@@ -17,12 +18,13 @@ export class AppCreateBlogComponent {
   @ViewChild('createBlogForm', { static: true }) createBlogForm: NgForm;
 
   blog: IBlogEntry;
-  constructor(private _service: AppCreateBlogService) {
+  constructor(private _service: AppCreateBlogService, private _notification: NotificationService) {
     this.resetValues();
    }
   resetForm() {
     this.resetValues();
     this.createBlogForm.form.markAsPristine();
+    this._notification.success("Values reset");
   }
   resetValues(){
     this.blog = {
@@ -33,6 +35,6 @@ export class AppCreateBlogComponent {
 }
 
 saveBlog() {
-  this._service.saveBlog(this.blog).subscribe({next: () => console.log("Blog saved")});
+  this._service.saveBlog(this.blog).subscribe({next: () => this._notification.success("Blog saved")});
 }
 }

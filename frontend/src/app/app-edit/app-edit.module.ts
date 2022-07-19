@@ -42,7 +42,7 @@ import { AppCreateBlogService } from './app-create-blog/app-create-blog.service'
   ],
   providers: [
     AppAccountService,
-    AppCreateBlogService
+    AppCreateBlogService,
   ]
 })
 export class AppEditModule { }

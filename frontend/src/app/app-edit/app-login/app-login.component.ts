@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NotificationService } from 'src/utils/notification.service';
 import { AppAccountService } from '../app-account.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AppLoginComponent {
   @Output() onLogin = new EventEmitter<boolean>();
   userMail: string;
   password: string;
-  constructor(private _service: AppAccountService) {
+  constructor(private _service: AppAccountService, private _notification: NotificationService) {
     this._resetValues();
    }
 
@@ -26,14 +27,18 @@ export class AppLoginComponent {
       return;
     }
     return this._service.sendLogin(this.userMail, this.password).subscribe({
-      next: () => this.onLogin.emit(true),
-      error: response => console.log(response.error.message)
+      next: (response: any) => {
+        this._notification.success(response.message); 
+        this.onLogin.emit(true);
+      },
+      error: response => this._notification.error(response.error.message)
     });
    }
 
    resetForm() {
     this._resetValues();
     this.loginForm.form.markAsPristine();
+    this._notification.success("Values reset");
    }
 
    private _resetValues(){

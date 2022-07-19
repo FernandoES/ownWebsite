@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NotificationService } from 'src/utils/notification.service';
 import { AppAccountService } from '../app-account.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AppRestorePasswordComponent {
   userMail: string;
   oldPassword: string;
   newPassword: string;
-  constructor(private _service: AppAccountService) {
+  constructor(private _service: AppAccountService, private _notification: NotificationService) {
     this._resetValues();
   }
 
@@ -25,14 +26,16 @@ export class AppRestorePasswordComponent {
     if(this.restoreForm.invalid) {
       return;
     }
-    this._service.restorePassword(this.userMail, this.oldPassword, this.newPassword).subscribe(_ => {
+    this._service.restorePassword(this.userMail, this.oldPassword, this.newPassword).subscribe({next:_ => {
+      this._notification.success("Password restored");
       this.resetForm();
-    });
+    }});
   }
 
   resetForm(){
     this._resetValues();
     this.restoreForm.form.markAsPristine();
+    this._notification.success("Values reset");
   }
 
   private _resetValues() {

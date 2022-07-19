@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, tap } from 'rxjs';
+import { tap } from 'rxjs';
 
 @Injectable()
 export class AppAccountService {

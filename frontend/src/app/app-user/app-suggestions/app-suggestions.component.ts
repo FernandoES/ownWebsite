@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NotificationService } from 'src/utils/notification.service';
 import { AppSuggestionsService, ISuggestion } from './app-suggestions.service';
 
 @Component({
@@ -15,7 +16,7 @@ import { AppSuggestionsService, ISuggestion } from './app-suggestions.service';
 export class AppSuggestionsComponent{
   @ViewChild('suggestionForm', { static: true }) suggestionForm: NgForm;
   suggestion: ISuggestion;
-  constructor(private _service: AppSuggestionsService) {
+  constructor(private _service: AppSuggestionsService, private _notification: NotificationService) {
     this._resetSuggestion();
    }
 
@@ -24,14 +25,16 @@ export class AppSuggestionsComponent{
       return;
     }
     const suggestion = this.suggestionForm.value;
-    this._service.sendSuggestions(suggestion).subscribe(_ => {
+    this._service.sendSuggestions(suggestion).subscribe({next: _ => {
+    this._notification.success("Suggestion sent");
       this.resetForm();
-    });
+    }});
   }
 
   resetForm(){
     this._resetSuggestion();
     this.suggestionForm.form.markAsPristine();
+    this._notification.success("Values reset");
   }
 
   private _resetSuggestion() {
