@@ -7,6 +7,7 @@ import { AppSideMenuRoutingModule } from './app-side-menu-routing.module';
 import { AppSideMenuComponent } from './app-side-menu.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { I18NextModule } from 'angular-i18next';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     MatAutocompleteModule,
     MatIconModule,
     AppSideMenuRoutingModule,
-    FormsModule
+    FormsModule, 
+    I18NextModule
   ],
   providers: [ ]
 })

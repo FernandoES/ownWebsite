@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,37 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from 'src/utils/notification.service';
+import { I18NextModule, I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
+
+export function appInit(i18next: ITranslationService) {
+  return () => i18next.init({
+      fallbackLng: 'en',
+      debug: true,
+      returnEmptyString: false,
+      ns: [
+        'translation',
+        'validation',
+        'error'          
+      ],
+    });
+}
+
+export function localeIdFactory(i18next: ITranslationService)  {
+  return i18next.language;
+}
+
+export const I18N_PROVIDERS = [
+{
+  provide: APP_INITIALIZER,
+  useFactory: appInit,
+  deps: [I18NEXT_SERVICE],
+  multi: true
+},
+{
+  provide: LOCALE_ID,
+  deps: [I18NEXT_SERVICE],
+  useFactory: localeIdFactory
+}];
 
 @NgModule({
   declarations: [
@@ -21,10 +52,11 @@ import { NotificationService } from 'src/utils/notification.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    I18NextModule.forRoot(),
     HttpClientModule
     
   ],
-  providers: [NotificationService],
+  providers: [NotificationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

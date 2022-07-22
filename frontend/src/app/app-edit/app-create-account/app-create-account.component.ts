@@ -26,15 +26,17 @@ export class AppCreateAccountComponent {
       return;
     }
     this._service.createAccount(this.userMail, this.password).subscribe({next: _ => {
-      this._notification.success("Account created");
-      this.resetForm();
+      this._notification.success("account.created");
+      this.resetForm(true);
     }});
   }
 
-  resetForm(){
+  resetForm(avoidInform: boolean = false){
     this._resetValues();
     this.createForm.form.markAsPristine();
-    this._notification.success("Values reset");
+    if(!avoidInform) { 
+      this._notification.success("common.reset");
+    }
   }
 
   private _resetValues() {

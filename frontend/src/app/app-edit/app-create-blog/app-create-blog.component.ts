@@ -21,10 +21,12 @@ export class AppCreateBlogComponent {
   constructor(private _service: AppCreateBlogService, private _notification: NotificationService) {
     this.resetValues();
    }
-  resetForm() {
+  resetForm(avoidInform: boolean = false) {
     this.resetValues();
     this.createBlogForm.form.markAsPristine();
-    this._notification.success("Values reset");
+    if(!avoidInform) { 
+      this._notification.success("common.reset");
+    }
   }
   resetValues(){
     this.blog = {
@@ -35,6 +37,6 @@ export class AppCreateBlogComponent {
 }
 
 saveBlog() {
-  this._service.saveBlog(this.blog).subscribe({next: () => this._notification.success("Blog saved")});
+  this._service.saveBlog(this.blog).subscribe({next: () => this._notification.success("editor.saved")});
 }
 }

@@ -1,0 +1,50 @@
+{
+    "common": {
+        "by": "by",
+        "at": "at",
+        "name": "name",
+        "eMail": "E-Mail",
+        "title": "Title",
+        "search": "Search Entry",
+        "cancel": "cancel",
+        "save": "save",
+        "send": "send",
+        "requiredField": "Field Required",
+        "requiredEmail": "E-Mail required",
+        "reset": "Values reset"
+    },
+    "header": {
+        "blog": "blog",
+        "suggestions": "suggestions",
+        "edit": "edit"
+    },
+    "blogList": {
+        "available": "Available Entries"
+    },
+    "suggestions": {
+        "header": "Here you can send suggestions to the editor",
+        "explanation": "Please, feel free to show your opinion",
+        "sent": "Suggestion sent"
+    },
+    "account": {
+        "loginHeader": "Login to edit and create new entries",
+        "restorePassword": "Restore password",
+        "createAccount": "Create Account",
+        "restore": "Restore",
+        "create": "Create",
+        "login": "Login",
+        "oldPassword": "Old Password",
+        "newPassword": "New Password",
+        "created": "Account created",
+        "restored": "Password restored"
+    },
+    "editor": {
+        "header": "Text Editor",
+        "explanation": "Create a new blog entry",
+        "saved": "Blog saved"
+    },
+    "sideMenu": {
+        "lastArticle": "Latest Article",
+        "randomArticle": "Random Article"
+    }
+}

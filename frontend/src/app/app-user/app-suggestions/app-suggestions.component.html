@@ -1,21 +1,21 @@
-<h1 class="text-center bold italic">Here you can send suggestions to the editor</h1>
-<h4 class="text-center">Please, feel free to show your opinion</h4>
+<h1 class="text-center bold italic">{{ "suggestions.header" | i18next }}</h1>
+<h4 class="text-center">{{ "suggestions.explanation" | i18next }}</h4>
 <form #suggestionForm="ngForm" (ngSubmit)="sendSuggestion()">
     <div name="inputFields">
         <mat-form-field appearance="fill">
             <input #userNameInput="ngModel" matInput="matInput" [(ngModel)]="suggestion.userName" name="userName" placeholder="Name" required/>
-            <mat-error><span [hidden]="!(userNameInput.errors && userNameInput.errors['required'])">Required Field</span></mat-error>
+            <mat-error><span [hidden]="!(userNameInput.errors && userNameInput.errors['required'])">{{ "common.requiredField" | i18next }}</span></mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <input #emailInput="ngModel" matInput="matInput" email [(ngModel)]="suggestion.userMail" name="userMail" placeholder="E-mail"/>
-            <mat-error><span [hidden]="!(emailInput.errors && emailInput.errors['email'])">Email Required</span></mat-error>
-            <mat-error><span [hidden]="!(emailInput.errors && emailInput.errors['required'])">Required Field</span></mat-error>
+            <mat-error><span [hidden]="!(emailInput.errors && emailInput.errors['email'])">{{ "common.requiredEmail" | i18next }}</span></mat-error>
+            <mat-error><span [hidden]="!(emailInput.errors && emailInput.errors['required'])">{{ "common.requiredField" | i18next }}</span></mat-error>
         </mat-form-field>
         <textarea name="body" [(ngModel)]="suggestion.body" #suggestionsInput="ngModel"></textarea>
-        <mat-error><span [hidden]="!(suggestionsInput.errors && suggestionsInput.errors['required'])">Required Field</span></mat-error>
+        <mat-error><span [hidden]="!(suggestionsInput.errors && suggestionsInput.errors['required'])">{{ "common.requiredField" | i18next }}</span></mat-error>
     </div>
   <div class="buttons" *ngIf="!suggestionForm.pristine">
-    <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" (click)="resetForm()" type="button">Cancel</button>
-    <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" color="primary">Save</button>
+    <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" (click)="resetForm()" type="button">{{ "common.cancel" | i18next }}</button>
+    <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" color="primary">{{ "common.save" | i18next }}</button>
   </div>
 </form>

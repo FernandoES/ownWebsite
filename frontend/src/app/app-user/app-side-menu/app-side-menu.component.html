@@ -2,8 +2,8 @@
     <mat-icon class="Medium material-icons">dehaze</mat-icon>
 </button>
 <mat-menu class="mat-menu" #userMenu="matMenu" yPosition="below">
-        <div class="m-sm" mat-menu-item (click)="goToLatestArticle($event)">Latest Article</div>
-        <div class="m-sm" mat-menu-item (click)="goToRandomArticle($event)">Random Article</div>
+        <div class="m-sm" mat-menu-item (click)="goToLatestArticle($event)">{{ "sideMenu.lastArticle" | i18next }}</div>
+        <div class="m-sm" mat-menu-item (click)="goToRandomArticle($event)">{{ "sideMenu.randomArticle" | i18next }}</div>
         <div class="m-sm">
                 <input #articleSearchInput="" [matAutocomplete]="articleSearchAutocomplete" matInput="matInput" (input)="onArticleSearchChange(articleSearchInput.value)" (keydown.enter)="$event.preventDefault(); articleSearchInput.value=''" placeholder="searchEntry" (click) = "$event.stopPropagation()"/>
                 <mat-autocomplete #articleSearchAutocomplete (optionSelected)="onArticleSelected($event)" >

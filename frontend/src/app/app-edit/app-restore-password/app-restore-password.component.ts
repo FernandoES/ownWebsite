@@ -27,15 +27,17 @@ export class AppRestorePasswordComponent {
       return;
     }
     this._service.restorePassword(this.userMail, this.oldPassword, this.newPassword).subscribe({next:_ => {
-      this._notification.success("Password restored");
-      this.resetForm();
+      this._notification.success("account.restored");
+      this.resetForm(true);
     }});
   }
 
-  resetForm(){
+  resetForm(avoidInform: boolean = false){
     this._resetValues();
     this.restoreForm.form.markAsPristine();
-    this._notification.success("Values reset");
+    if(!avoidInform) { 
+      this._notification.success("common.reset");
+    }
   }
 
   private _resetValues() {

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AppBlogRoutingModule } from './app-blog-routing.module';
 import { AppBlogComponent } from './app-blog.component';
 import { ShowdownModule } from 'ngx-showdown';
+import { I18NextModule } from 'angular-i18next';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ShowdownModule } from 'ngx-showdown';
   imports: [
     CommonModule,
     AppBlogRoutingModule,
-    ShowdownModule
+    ShowdownModule,
+    I18NextModule
   ],
   providers: [ ]
 })

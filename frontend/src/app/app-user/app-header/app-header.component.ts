@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { LanguageService } from 'src/language/language.service';
 
 export interface LinkOption  {
   url: string,
@@ -35,7 +36,10 @@ export class AppHeaderComponent implements OnInit {
     }
   ];
 
-  constructor(_ref: ChangeDetectorRef) { }
+  constructor(_ref: ChangeDetectorRef, private language: LanguageService) { }
 
   ngOnInit(): void { }
+  changeLanguage(lng: string) {
+    this.language.changeLanguage(lng);
+  }
 }

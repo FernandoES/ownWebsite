@@ -35,10 +35,12 @@ export class AppLoginComponent {
     });
    }
 
-   resetForm() {
+   resetForm(avoidInform: boolean = false) {
     this._resetValues();
     this.loginForm.form.markAsPristine();
-    this._notification.success("Values reset");
+    if(!avoidInform) { 
+      this._notification.success("common.reset");
+    }
    }
 
    private _resetValues(){

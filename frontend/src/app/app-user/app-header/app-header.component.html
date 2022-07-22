@@ -6,5 +6,9 @@
                 <a [routerLink]="option.url">{{ option.slug }}</a>
             </li>
         </ul>
+        <div class="right" fxLayout="row" fxLayoutGap="10px">
+            <a (click)="changeLanguage('es')">es</a>
+            <a (click)="changeLanguage('en')">en</a>
+        </div>
     </div>
 </nav>

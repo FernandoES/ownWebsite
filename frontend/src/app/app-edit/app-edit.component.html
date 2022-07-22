@@ -4,13 +4,13 @@
 </ng-container>
 <ng-container *ngIf="!service.logged">
     <div [fxLayout]="'row'" fxLayoutGap="10px">
-        <a (click)="goToRestorePasswordMenu()">Restore password</a>
-        <a (click)="goTocreateAccountMenu()">Create account</a>
-        <a (click)="goToLoginMenu()">Login</a>
+        <a (click)="goToRestorePasswordMenu()">{{ "account.restorePassword" | i18next }}</a>
+        <a (click)="goTocreateAccountMenu()">{{ "account.createAccount" | i18next }}</a>
+        <a (click)="goToLoginMenu()">{{ "account.login" | i18next }}</a>
     </div>
     <ng-container [ngSwitch]="selectedLoginOption">
-        <app-login (onLogin)="update()" *ngSwitchCase="LoginOption.LOGIN">login</app-login>
-        <app-restore-password *ngSwitchCase="LoginOption.RESTORE">restore</app-restore-password>
-        <app-create-account *ngSwitchCase="LoginOption.CREATE">create</app-create-account>
+        <app-login (onLogin)="update()" *ngSwitchCase="LoginOption.LOGIN">{{ "account.login" | i18next }}</app-login>
+        <app-restore-password *ngSwitchCase="LoginOption.RESTORE">{{ "account.restore" | i18next }}</app-restore-password>
+        <app-create-account *ngSwitchCase="LoginOption.CREATE">{{ "account.create" | i18next }}</app-create-account>
     </ng-container>
 </ng-container>

@@ -26,15 +26,17 @@ export class AppSuggestionsComponent{
     }
     const suggestion = this.suggestionForm.value;
     this._service.sendSuggestions(suggestion).subscribe({next: _ => {
-    this._notification.success("Suggestion sent");
-      this.resetForm();
+    this._notification.success("suggestions.sent");
+      this.resetForm(true);
     }});
   }
 
-  resetForm(){
+  resetForm(avoidInform?: boolean){
     this._resetSuggestion();
     this.suggestionForm.form.markAsPristine();
-    this._notification.success("Values reset");
+    if(!avoidInform) { 
+      this._notification.success("common.reset");
+    }
   }
 
   private _resetSuggestion() {

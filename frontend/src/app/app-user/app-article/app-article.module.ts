@@ -6,6 +6,7 @@ import { AppArticleComponent } from './app-article.component';
 import { AppArticleService } from './app-article.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShowdownModule } from 'ngx-showdown';
+import { I18NextModule } from 'angular-i18next';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ShowdownModule } from 'ngx-showdown';
     CommonModule,
     AppArticleRoutingModule,
     FlexLayoutModule,
-    ShowdownModule
+    ShowdownModule, 
+    I18NextModule
   ],
   providers: [
     AppArticleService

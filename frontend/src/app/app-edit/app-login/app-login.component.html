@@ -1,19 +1,19 @@
 <div class="loginWrapper">
     <img src="assets/logoTransparent.png" alt="logoTransparent" class="login-logo">
-    <h4 class="text-center">Login to edit and create new entries</h4>
+    <h4 class="text-center">{{ "account.loginHeader" | i18next }}</h4>
     <form #loginForm="ngForm" (ngSubmit)="login()" [fxLayout]="'column'">
         <mat-card>
         <div [fxLayout]="'row'">
-            <label for="email" [fxFlex]="'0 0 25%'">E-Mail:</label>
+            <label for="email" [fxFlex]="'0 0 25%'">{{ "common.eMail" | i18next }}:</label>
             <input  [fxFlex]="'0 0 50%'" type="email" id="email" #emailControl="ngModel" email [placeholder]="'email'" required name="email" [(ngModel)]="userMail"/>
         </div>
         <div [fxLayout]="'row'">
-            <label for="password" [fxFlex]="'0 0 25%'">Password:</label>
+            <label for="password" [fxFlex]="'0 0 25%'">{{ "common.password" | i18next }}:</label>
             <input  [fxFlex]="'0 0 50%'" type="password" id="password" #passwordControl="ngModel" [placeholder]="'password'" required name="password" [(ngModel)]="password"/>
         </div>
         <div class="buttons" *ngIf="!loginForm.pristine">
-        <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" (click)="resetForm()" type="button">Cancel</button>
-        <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" color="primary">Send</button>
+        <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" (click)="resetForm()" type="button">{{ "common.cancel" | i18next }}</button>
+        <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" color="primary">{{ "common.send" | i18next }}</button>
         </div>
     </mat-card>
     </form>

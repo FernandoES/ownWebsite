@@ -1,0 +1,50 @@
+{
+    "common": {
+        "by": "Por",
+        "at": "el",
+        "name": "Nombre",
+        "eMail": "E-Mail",
+        "title": "Título",
+        "search": "Búsqueda",
+        "cancel": "Cancelar",
+        "save": "Guardar",
+        "send": "Enviar",
+        "requiredField": "Campo obligatorio",
+        "requiredEmail": "E-Mail obligatorio",
+        "reset": "Valores restaurados"
+    },
+    "header": {
+        "blog": "Blog",
+        "suggestions": "Sugerencias",
+        "edit": "Editar"
+    },
+    "blogList": {
+        "available": "Entradas disponibles"
+    },
+    "suggestions": {
+        "header": "Aquí puede enviar sugerencias al editor",
+        "explanation": "Siéntase libre de mostar su opinión",
+        "sent": "Sugerencias enviadas"
+    },
+    "account": {
+        "loginHeader": "Entre para editar y crear nuevas entradas del blog",
+        "restorePassword": "Restaurar contraseña",
+        "createAccount": "Crear cuenta",
+        "restore": "Restaurar",
+        "create": "Crear",
+        "login": "Entrar",
+        "oldPassword": "Contraseña previa",
+        "newPassword": "Contraseña nueva",
+        "created": "Cuenta creada",
+        "restored": "Contraseña restaurada"
+    },
+    "editor": {
+        "header": "Editor de texto",
+        "explanation": "Crear una nueva entra del blog",
+        "saved": "Blog guardado"
+    },
+    "sideMenu": {
+        "lastArticle": "Artículo más nuevo",
+        "randomArticle": "Artículo aleatorio"
+    }
+}
