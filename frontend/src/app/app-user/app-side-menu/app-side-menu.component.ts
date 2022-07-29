@@ -46,7 +46,7 @@ export class AppSideMenuComponent {
   }
 
   onArticleSelected($event: MatAutocompleteSelectedEvent) {
-    this.goToArticle($event.option.value.id);
+    this.goToArticle($event.option.value._id);
   }
   
   onArticleSearchChange(input: string) {
