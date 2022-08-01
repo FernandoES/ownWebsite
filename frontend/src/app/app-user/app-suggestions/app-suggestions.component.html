@@ -3,11 +3,11 @@
 <form #suggestionForm="ngForm" (ngSubmit)="sendSuggestion()">
     <div name="inputFields">
         <mat-form-field appearance="fill">
-            <input #userNameInput="ngModel" matInput="matInput" [(ngModel)]="suggestion.userName" name="userName" placeholder="Name" required/>
+            <input #userNameInput="ngModel" matInput="matInput" [(ngModel)]="suggestion.userName" name="userName" placeholder="{{ 'common.name' | i18next }}" required/>
             <mat-error><span [hidden]="!(userNameInput.errors && userNameInput.errors['required'])">{{ "common.requiredField" | i18next }}</span></mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <input #emailInput="ngModel" matInput="matInput" email [(ngModel)]="suggestion.userMail" name="userMail" placeholder="E-mail"/>
+            <input #emailInput="ngModel" matInput="matInput" email [(ngModel)]="suggestion.userMail" name="userMail" placeholder="{{ 'common.eMail' | i18next }}"/>
             <mat-error><span [hidden]="!(emailInput.errors && emailInput.errors['email'])">{{ "common.requiredEmail" | i18next }}</span></mat-error>
             <mat-error><span [hidden]="!(emailInput.errors && emailInput.errors['required'])">{{ "common.requiredField" | i18next }}</span></mat-error>
         </mat-form-field>

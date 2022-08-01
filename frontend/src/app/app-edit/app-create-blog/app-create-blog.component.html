@@ -3,12 +3,12 @@
 <form #createBlogForm="ngForm" (ngSubmit)="saveBlog()">
     <div  [fxLayout]="'row'">
         <mat-form-field [fxLayout]="'row'" appearance="fill">
-            <input #titleInput="ngModel" matInput="matInput" [(ngModel)]="blog.title" name="titleInput" placeholder="Title" required/>
+            <input #titleInput="ngModel" matInput="matInput" [(ngModel)]="blog.title" name="titleInput" placeholder="{{ 'common.title' | i18next }}" required/>
             <mat-error><span [hidden]="!(titleInput.errors && titleInput.errors['required'])">{{ "common.requiredField | i18next }}</span></mat-error>
         </mat-form-field>
     </div> 
         <textarea name="textBody" [(ngModel)]="blog.body" #textBodyInput="ngModel"></textarea>
-        <mat-error><span [hidden]="!(textBodyInput.errors && textBodyInput.errors['required'])">{{ "common.requiredField | i18next }}</span></mat-error>
+        <mat-error><span [hidden]="!(textBodyInput.errors && textBodyInput.errors['required'])">{{ "common.requiredField" | i18next }}</span></mat-error>
   <div class="buttons" *ngIf="!createBlogForm.pristine">
     <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" (click)="resetForm()" type="button">{{ "common.cancel" | i18next }}</button>
     <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" color="primary">{{ "common.save" | i18next }}</button>

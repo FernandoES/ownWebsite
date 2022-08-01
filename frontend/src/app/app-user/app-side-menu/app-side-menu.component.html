@@ -5,7 +5,14 @@
         <div class="m-sm" mat-menu-item (click)="goToLatestArticle($event)">{{ "sideMenu.lastArticle" | i18next }}</div>
         <div class="m-sm" mat-menu-item (click)="goToRandomArticle($event)">{{ "sideMenu.randomArticle" | i18next }}</div>
         <div class="m-sm">
-                <input #articleSearchInput="" [matAutocomplete]="articleSearchAutocomplete" matInput="matInput" (input)="onArticleSearchChange(articleSearchInput.value)" (keydown.enter)="$event.preventDefault(); articleSearchInput.value=''" placeholder="searchEntry" (click) = "$event.stopPropagation()"/>
+                <input 
+                #articleSearchInput="" 
+                [matAutocomplete]="articleSearchAutocomplete" 
+                matInput="matInput" 
+                (input)="onArticleSearchChange(articleSearchInput.value)" 
+                (keydown.enter)="$event.preventDefault(); articleSearchInput.value=''" 
+                placeholder="{{ 'sideMenu.searchEntry' | i18next }}" 
+                (click) = "$event.stopPropagation()"/>
                 <mat-autocomplete #articleSearchAutocomplete (optionSelected)="onArticleSelected($event)" >
                         <mat-option *ngFor="let article of searchMatches" (click)="articleSearchInput.value=''" [value]="article">{{ article.title }}</mat-option>
                 </mat-autocomplete>

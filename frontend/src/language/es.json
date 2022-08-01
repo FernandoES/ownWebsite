@@ -11,7 +11,8 @@
         "send": "Enviar",
         "requiredField": "Campo obligatorio",
         "requiredEmail": "E-Mail obligatorio",
-        "reset": "Valores restaurados"
+        "reset": "Valores restaurados",
+        "password": "Contraseña"
     },
     "header": {
         "blog": "Blog",
@@ -45,6 +46,7 @@
     },
     "sideMenu": {
         "lastArticle": "Artículo más nuevo",
-        "randomArticle": "Artículo aleatorio"
+        "randomArticle": "Artículo aleatorio",
+        "searchEntry": "Búsqueda"
     }
 }

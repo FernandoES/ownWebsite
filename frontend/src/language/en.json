@@ -11,7 +11,8 @@
         "send": "send",
         "requiredField": "Field Required",
         "requiredEmail": "E-Mail required",
-        "reset": "Values reset"
+        "reset": "Values reset",
+        "password": "Password"
     },
     "header": {
         "blog": "blog",
@@ -45,6 +46,7 @@
     },
     "sideMenu": {
         "lastArticle": "Latest Article",
-        "randomArticle": "Random Article"
+        "randomArticle": "Random Article",
+        "searchEntry": "Search"
     }
 }
