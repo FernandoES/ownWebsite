@@ -19,7 +19,7 @@ articleCtrl.saveArticle = async (req, res) => {
         const article = new Article({...req.body, date: new Date() });
         await article.save();
         res.json({
-            'status': 'article saved'
+            'status': 'response.success.articleSaved'
         })
     }
     catch (e){

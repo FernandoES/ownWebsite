@@ -48,5 +48,30 @@
         "lastArticle": "Artículo más nuevo",
         "randomArticle": "Artículo aleatorio",
         "searchEntry": "Búsqueda"
+    },
+    "response": {
+        "article": {
+            "error": {
+                "noArticleId": "No se ha encontrado el artículo requrido"
+            },
+            "success": {
+                "saved": "Artículo guardado"
+            }
+        },
+        "login": {
+            "success": {
+                "logged": "Ha accedido a su cuenta",
+                "out": "La sesión ha sido cerrada"
+            },
+            "error": {
+
+            }
+        },
+        "suggestions": {
+            "saved": "Sugerencia guardada"
+        },
+        "common": {
+            "required": "The following values are required"
+        }
     }
 }

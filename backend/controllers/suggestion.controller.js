@@ -7,7 +7,7 @@ suggestionCtrl.saveSuggestion = async (req, res) => {
         const suggestion = new Suggestion({...req.body, date: new Date() });
         await suggestion.save();
         res.json({
-            'status': 'suggestion saved'
+            'status': 'response.suggestions.saved'
         })
         return;
     }

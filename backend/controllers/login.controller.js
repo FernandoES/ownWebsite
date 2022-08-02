@@ -17,7 +17,7 @@ userCtrl.createAccount = async (req,res) => {
             })
         }
         catch (e){
-            res.status(400).json({'status': utils.showSchemaError(User)});
+            res.status(400).json(utils.showSchemaError(User));
         }
 }
 }

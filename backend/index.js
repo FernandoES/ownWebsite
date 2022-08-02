@@ -5,7 +5,6 @@ const app = express();
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('express-flash');
-const users = [{id: 2 , password: "$2b$10$e4AqKhTtQTdZGIhL.DR7seUzjJV7yZrJgVoVB6dh.6EsnapT4UjPm",userMail: "fernan_1989@hotmail.com"}];
 const APIPrefix = 'api';
 const userCtrl = require('./controllers/login.controller');
 const initializePassport = require('./passport-config');

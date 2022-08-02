@@ -48,5 +48,30 @@
         "lastArticle": "Latest Article",
         "randomArticle": "Random Article",
         "searchEntry": "Search"
+    },
+    "response": {
+        "article": {
+            "error": {
+                "noArticleId": "The required article could not be found"
+            },
+            "success": {
+                "saved": "Article saved"
+            }
+        },
+        "login": {
+            "success": {
+                "logged": "Logged in",
+                "out": "Logged out"
+            },
+            "error": {
+
+            }
+        },
+        "suggestions": {
+            "saved": "Suggestion saved"
+        },
+        "common": {
+            "required": "The following values are required"
+        }
     }
 }
