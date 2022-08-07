@@ -18,6 +18,7 @@ export class AppCreateBlogComponent {
   @ViewChild('createBlogForm', { static: true }) createBlogForm: NgForm;
 
   blog: IBlogEntry;
+  image: File;
   constructor(private _service: AppCreateBlogService, private _notification: NotificationService) {
     this.resetValues();
    }
@@ -36,7 +37,14 @@ export class AppCreateBlogComponent {
 
 }
 
+setFile(event: Event) {
+  const target = event.target as HTMLInputElement;
+  if (target.files && target.files.length > 0){
+    this.image = target.files[0];
+  }
+}
+
 saveBlog() {
-  this._service.saveBlog(this.blog).subscribe({next: () => this._notification.success("editor.saved")});
+  this._service.saveBlog(this.blog, this.image).subscribe({next: () => this._notification.success("editor.saved")});
 }
 }

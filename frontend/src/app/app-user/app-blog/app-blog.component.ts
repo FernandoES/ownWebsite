@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, map, Observable, of, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBlogEntry, UserService } from '../app-user.service';
 
@@ -15,7 +15,15 @@ import { IBlogEntry, UserService } from '../app-user.service';
 })
 export class AppBlogComponent implements OnInit {
 
-  public blogList$: Observable<IBlogEntry[]> = this._userService.fetchArticlesList();
+  public blogList$: Observable<IBlogEntry[]> = this._userService.fetchArticlesList().pipe(switchMap(articles => 
+    forkJoin(articles.map(article => {
+      if(article.imageName) {
+        return this._userService.fetchImage(article.imageName).pipe(map(imagePath => ({...article, imagePath: imagePath})));
+      }
+      else {
+        return of(article);
+      }
+    }))));
 
   constructor(
     private _userService: UserService, 

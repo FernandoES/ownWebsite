@@ -1,5 +1,12 @@
 <h1>{{ "editor.header" | i18next }}</h1>
 <h2>{{ "editor.explanation" | i18next }}</h2>
+
+<div>
+  <button class="btn waves-effect waves-light imageButton" type="button" mat-raised-button (click)="imageInput.click()">{{ "editor.selectImage" | i18next }}</button>
+  <input hidden #imageInput type="file" (change)="setFile($event)">
+  <span class="file-name">{{image?.name}}</span>
+</div>
+
 <form #createBlogForm="ngForm" (ngSubmit)="saveBlog()">
     <div  [fxLayout]="'row'">
         <mat-form-field [fxLayout]="'row'" appearance="fill">

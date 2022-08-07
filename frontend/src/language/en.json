@@ -42,7 +42,8 @@
     "editor": {
         "header": "Text Editor",
         "explanation": "Create a new blog entry",
-        "saved": "Blog saved"
+        "saved": "Blog saved",
+        "selectImage": "Select Picture"
     },
     "sideMenu": {
         "lastArticle": "Latest Article",

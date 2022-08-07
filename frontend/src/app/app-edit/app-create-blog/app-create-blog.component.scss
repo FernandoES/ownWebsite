@@ -15,11 +15,8 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    .mat-form-field {
-        
-    }
-    textarea {
-        //width: 80rem;
-    }
+}
+.imageButton {
+    width: fit-content;
 }
 }

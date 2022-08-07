@@ -12,7 +12,7 @@ suggestionCtrl.saveSuggestion = async (req, res) => {
         return;
     }
     catch (e){
-        res.status(400).json({'status': utils.showSchemaError(Suggestion)})
+        res.status(400).json(utils.showSchemaError(Suggestion))
     }
 };
 

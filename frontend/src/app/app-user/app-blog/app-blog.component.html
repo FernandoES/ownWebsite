@@ -1,6 +1,7 @@
 <h1 class="text-center bold italic">{{ "blogList.available" | i18next }}</h1>
 <ul><li *ngFor="let item of blogList$ | async as list"> <button type="button" (click)="goToArticle(item)">
     <h2>{{item.title}}</h2>
+    <img *ngIf="item.imagePath" class="image" alt="img" [src]="item.imagePath" width="100">
     <showdown [value]="item.body"></showdown>
 </button>
 </li></ul>
