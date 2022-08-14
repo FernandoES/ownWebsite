@@ -1,7 +1,18 @@
 <h1 class="text-center bold italic">{{ "blogList.available" | language }}</h1>
-<ul><li *ngFor="let item of blogList$ | async as list"> <button type="button" (click)="goToArticle(item)">
-    <h2>{{item.title}}</h2>
-    <img *ngIf="item.imagePath" class="image" alt="img" [src]="item.imagePath" width="100">
-    <showdown [value]="item.body"></showdown>
-</button>
-</li></ul>
+<div class="container">
+    <div *ngFor="let item of blogList$ | async as list"> 
+        <button type="button" (click)="goToArticle(item)">
+            <mat-card>
+                <mat-card-title>
+                    <h2>{{item.title}}</h2>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <img *ngIf="item.imagePath" class="image" alt="img" [src]="item.imagePath" width="100">
+                </mat-card-subtitle>
+                <mat-card-content>
+                    <showdown [value]="item.body"></showdown>
+                </mat-card-content>
+            </mat-card>
+        </button>
+    </div>
+</div>

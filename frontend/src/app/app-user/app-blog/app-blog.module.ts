@@ -5,6 +5,8 @@ import { AppBlogRoutingModule } from './app-blog-routing.module';
 import { AppBlogComponent } from './app-blog.component';
 import { ShowdownModule } from 'ngx-showdown';
 import { LanguageModule } from 'src/language/language.module';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { LanguageModule } from 'src/language/language.module';
     CommonModule,
     AppBlogRoutingModule,
     ShowdownModule,
+    MatCardModule,
+    FlexLayoutModule,
     LanguageModule
   ],
   providers: [ ]
