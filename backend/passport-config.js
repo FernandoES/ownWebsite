@@ -4,7 +4,6 @@ const userCtrl = require('./controllers/login.controller');
 
 function initialize(passport, getUserByEmail, getUserById) {
     const authenticateUser = async (userMail, password, done) => {
-        console.log("password", password);
         const user = await getUserByEmail(userMail);
         if (user == null) {
             return done('no user with that email', false);

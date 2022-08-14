@@ -3,10 +3,21 @@ const utils = require('../utils/utils');
 const path = require('path');
 const fs = require('fs');
 
+const textLength = 300;
+const markdownSymbols = ['*', '**', '``', '~~','_' ,'__'];
+
 const articleCtrl = {};
 articleCtrl.getArticlesList = async (req, res) => {
     const articles = await Article.find();
-    res.json(articles);
+    res.json(articles.map(article => {
+        return {...article,
+            author: article.author,
+            date: article.date,
+            title: article.title,
+            _id: article._id,
+            imageName: article.imageName,
+            body: cutTextAvoidingMarkdown(article.body)};
+    }));
 };
 
 articleCtrl.getArticle = async (req, res) => {
@@ -58,6 +69,13 @@ articleCtrl.uploadImage = async (req, res) => {
     res.setHeader('Content-Length', file.length);
     res.write(file, 'binary');
     res.end();
+ }
+
+ function cutTextAvoidingMarkdown(text) {
+    let reducedText = text.slice(0, textLength);
+    const markDownSymbolsOpened = markdownSymbols.filter(s => {
+        return (reducedText.split(s)?.length -1)%2 > 0;});
+    return reducedText + markDownSymbolsOpened.join(" ") + "...";
  }
 
 module.exports = articleCtrl;
