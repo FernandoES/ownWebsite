@@ -18,7 +18,6 @@ export class AppBlogComponent implements OnInit {
 
   public blogList$: Observable<IBlogEntry[]> = this._userService.fetchArticlesList().pipe(switchMap(articles => 
     forkJoin(articles.sort(this.compareArticlesByDate).map(article => {
-      console.log("article", article);
       this.articles.push(article);
       if(article.imageName) {
         return this._userService.fetchImage(article.imageName).pipe(map(imagePath => ({...article, imagePath: imagePath})));

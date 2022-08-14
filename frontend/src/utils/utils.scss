@@ -29,6 +29,12 @@
     font-style: oblique;
 }
 
+.ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .date {
     font-size: smaller;
 }
