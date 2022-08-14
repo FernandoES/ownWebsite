@@ -7,7 +7,7 @@ export interface IBlogEntry {
     title: string;
     body: string;
     _id?: string;
-    date?: Date;
+    date?: string;
     author?: string;
     imageName?: string;
     imagePath?: SafeResourceUrl;

@@ -14,9 +14,12 @@ import { IBlogEntry, UserService } from '../app-user.service';
   }
 })
 export class AppBlogComponent implements OnInit {
+  articles: IBlogEntry[] = [];
 
   public blogList$: Observable<IBlogEntry[]> = this._userService.fetchArticlesList().pipe(switchMap(articles => 
-    forkJoin(articles.map(article => {
+    forkJoin(articles.sort(this.compareArticlesByDate).map(article => {
+      console.log("article", article);
+      this.articles.push(article);
       if(article.imageName) {
         return this._userService.fetchImage(article.imageName).pipe(map(imagePath => ({...article, imagePath: imagePath})));
       }
@@ -39,5 +42,17 @@ export class AppBlogComponent implements OnInit {
 
   getArticleLink(item: IBlogEntry): string {
     return `../article/${item._id}`;
+  }
+
+  compareArticlesByDate(firstArticle: IBlogEntry, secondArticle: IBlogEntry) {
+    if(!firstArticle.date) {
+      return -1;
+    }
+    if (!secondArticle.date) {
+      return 1;
+    }
+    const first = new Date(firstArticle.date);
+    const second = new Date(secondArticle.date);
+    return second.getTime() - first.getTime();
   }
 }
