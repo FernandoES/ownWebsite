@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/language/language.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { LanguageService } from 'src/language/language.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+  subscriptions: Subscription[];
   title = 'frontend';
-  constructor(language: LanguageService, ref: ChangeDetectorRef) {
+  constructor(language: LanguageService) {
     language.init();
-    language.languageChanged.subscribe(_ => {ref.markForCheck(); console.log("updated")});
   }
 }

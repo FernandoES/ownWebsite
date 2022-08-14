@@ -9,7 +9,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
-import { I18NextModule } from 'angular-i18next';
+import { LanguageModule } from 'src/language/language.module';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { I18NextModule } from 'angular-i18next';
     MatInputModule,
     FlexLayoutModule,    
     MatButtonModule, 
-    I18NextModule
+    LanguageModule
   ],
   providers: [AppSuggestionsService]
 })

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AppBlogRoutingModule } from './app-blog-routing.module';
 import { AppBlogComponent } from './app-blog.component';
 import { ShowdownModule } from 'ngx-showdown';
-import { I18NextModule } from 'angular-i18next';
+import { LanguageModule } from 'src/language/language.module';
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { I18NextModule } from 'angular-i18next';
     CommonModule,
     AppBlogRoutingModule,
     ShowdownModule,
-    I18NextModule
+    LanguageModule
   ],
   providers: [ ]
 })

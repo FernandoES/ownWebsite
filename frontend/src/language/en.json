@@ -15,9 +15,9 @@
         "password": "Password"
     },
     "header": {
-        "blog": "blog",
-        "suggestions": "suggestions",
-        "edit": "edit"
+        "blog": "Blog",
+        "suggestions": "Suggestions",
+        "edit": "Edit"
     },
     "blogList": {
         "available": "Available Entries"

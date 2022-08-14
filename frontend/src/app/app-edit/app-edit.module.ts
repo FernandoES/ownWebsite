@@ -17,7 +17,7 @@ import { AppAccountService } from './app-account.service';
 import { AppCreateBlogComponent } from './app-create-blog/app-create-blog.component';
 import { MatInputModule } from '@angular/material/input';
 import { AppCreateBlogService } from './app-create-blog/app-create-blog.service';
-import { I18NextModule } from 'angular-i18next';
+import { LanguageModule } from 'src/language/language.module';
 
 
 @NgModule({
@@ -39,8 +39,7 @@ import { I18NextModule } from 'angular-i18next';
     MatIconModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    I18NextModule
-
+    LanguageModule
   ],
   providers: [
     AppAccountService,

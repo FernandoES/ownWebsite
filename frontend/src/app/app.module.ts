@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from 'src/utils/notification.service';
 import { I18NextModule, I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
+import { LanguageModule } from 'src/language/language.module';
 
 export function appInit(i18next: ITranslationService) {
   return () => i18next.init({
@@ -53,7 +54,8 @@ export const I18N_PROVIDERS = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     I18NextModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    LanguageModule
     
   ],
   providers: [NotificationService ],

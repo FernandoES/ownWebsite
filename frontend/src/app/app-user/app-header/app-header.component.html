@@ -3,7 +3,7 @@
         <a href=""><img src="assets/logoTransparent.png" alt="logo" class="left brand-logo" [fxLayout]="'row'" fxLayoutGap="10%"></a>
         <ul class="center">
             <li *ngFor="let option of options">
-                <a [routerLink]="option.url">{{ option.slug }}</a>
+                <a [routerLink]="option.url">{{ option.slug | language }}</a>
             </li>
         </ul>
         <div class="right" fxLayout="row" fxLayoutGap="10px">

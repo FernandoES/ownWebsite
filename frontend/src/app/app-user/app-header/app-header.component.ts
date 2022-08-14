@@ -22,17 +22,17 @@ export class AppHeaderComponent implements OnInit {
     {
       url: "user/blog",
       nameTag: "blog",
-      slug: "blog"
+      slug: "header.blog"
     },
     {
       url: "user/suggestions",
       nameTag: "suggestions",
-      slug: "suggestions"
+      slug: "header.suggestions"
     },
     {
       url: "edit",
       nameTag: "edit",
-      slug: "edit"
+      slug: "header.edit"
     }
   ];
 

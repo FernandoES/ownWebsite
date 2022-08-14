@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import { I18NextModule } from 'angular-i18next';
+import { LanguageModule } from 'src/language/language.module';
 import { AppHeaderComponent } from './app-header.component';
 
 @NgModule({
-    imports: [FlexLayoutModule,CommonModule,RouterModule, I18NextModule  ],
+    imports: [FlexLayoutModule,CommonModule,RouterModule, LanguageModule  ],
     exports: [AppHeaderComponent],
     declarations: [AppHeaderComponent],
     providers: [],
