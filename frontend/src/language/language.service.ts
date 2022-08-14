@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import i18next, { i18n, InitOptions, TOptions } from 'i18next';
+import i18next, { i18n, InitOptions } from 'i18next';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import en from '../language/en.json';
@@ -8,6 +8,7 @@ import es from '../language/es.json';
 @Injectable({providedIn: 'root'})
 export class LanguageService {
     library: i18n;
+    availableLanguages = ['en', 'es'];
     languageEvents = new BehaviorSubject<string>('');
     private libraryEventsThatTriggerTranslationUpdate = ['initialized', 'languageChanged'];
 

@@ -10,7 +10,6 @@ import { LanguageService } from 'src/language/language.service';
 })
 export class AppComponent {
   subscriptions: Subscription[];
-  title = 'frontend';
   constructor(language: LanguageService) {
     language.init();
   }

@@ -36,7 +36,7 @@ export class AppHeaderComponent implements OnInit {
     }
   ];
 
-  constructor(_ref: ChangeDetectorRef, private language: LanguageService) { }
+  constructor(_ref: ChangeDetectorRef, public language: LanguageService) { }
 
   ngOnInit(): void { }
   changeLanguage(lng: string) {
