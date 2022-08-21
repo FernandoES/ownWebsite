@@ -12,7 +12,8 @@
         "requiredField": "Campo obligatorio",
         "requiredEmail": "E-Mail obligatorio",
         "reset": "Valores restaurados",
-        "password": "Contraseña"
+        "password": "Contraseña",
+        "loading": "Cargando"
     },
     "header": {
         "blog": "Blog",

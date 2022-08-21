@@ -24,8 +24,13 @@ articleCtrl.getArticle = async (req, res) => {
     const articleId = req.params.id;
     if (!articleId || articleId === 'undefined') {
         res.status(400).json({'status': 'response.article.error.noArticleId'});
+        return;
     }
     const article = await Article.findById(articleId);
+    if (!article) {
+        res.status(400).json({'status': 'response.article.error.noArticleId'});
+        return;
+    }
     res.json(article);
 };
 

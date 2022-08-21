@@ -12,7 +12,8 @@
         "requiredField": "Field Required",
         "requiredEmail": "E-Mail required",
         "reset": "Values reset",
-        "password": "Password"
+        "password": "Password",
+        "loading": "Loading"
     },
     "header": {
         "blog": "Blog",
