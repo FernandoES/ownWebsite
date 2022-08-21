@@ -17,8 +17,8 @@ export const appUserRoutes: Routes = [
                 loadChildren: () => import('./app-blog/app-blog.module').then(m => m.AppBlogModule)
             },
             {
-                path: 'suggestions', 
-                loadChildren: () => import('./app-suggestions/app-suggestions.module').then(m => m.AppSuggestionsModule)
+                path: 'suggestion', 
+                loadChildren: () => import('./app-suggestion/app-suggestion.module').then(m => m.AppSuggestionModule)
             },
             {
                 path: 'article/:id',

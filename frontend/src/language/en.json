@@ -18,7 +18,8 @@
     "header": {
         "blog": "Blog",
         "suggestions": "Suggestions",
-        "edit": "Edit"
+        "edit": "Edit",
+        "login": "Login"
     },
     "blogList": {
         "available": "Available Entries"
@@ -44,7 +45,9 @@
         "header": "Text Editor",
         "explanation": "Create a new blog entry",
         "saved": "Blog saved",
-        "selectImage": "Select Picture"
+        "selectImage": "Select Picture",
+        "createBlog": "Create new blog entry",
+        "suggestions": "Go to suggestions list"
     },
     "sideMenu": {
         "lastArticle": "Latest Article",

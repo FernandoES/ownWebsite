@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { LanguageService } from 'src/language/language.service';
 
 export interface LinkOption  {
@@ -17,7 +17,7 @@ export interface LinkOption  {
     class: 'app-header'
   }
 })
-export class AppHeaderComponent implements OnInit {
+export class AppHeaderComponent {
   options:LinkOption[]= [
     {
       url: "user/blog",
@@ -25,20 +25,19 @@ export class AppHeaderComponent implements OnInit {
       slug: "header.blog"
     },
     {
-      url: "user/suggestions",
-      nameTag: "suggestions",
+      url: "user/suggestion",
+      nameTag: "suggestion",
       slug: "header.suggestions"
     },
     {
       url: "edit",
-      nameTag: "edit",
-      slug: "header.edit"
+      nameTag: "login",
+      slug: "header.login"
     }
   ];
 
   constructor(_ref: ChangeDetectorRef, public language: LanguageService) { }
 
-  ngOnInit(): void { }
   changeLanguage(lng: string) {
     this.language.changeLanguage(lng);
   }

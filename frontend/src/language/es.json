@@ -18,7 +18,8 @@
     "header": {
         "blog": "Blog",
         "suggestions": "Sugerencias",
-        "edit": "Editar"
+        "edit": "Editar",
+        "login": "Acceder"
     },
     "blogList": {
         "available": "Entradas disponibles"
@@ -44,7 +45,9 @@
         "header": "Editor de texto",
         "explanation": "Crear una nueva entra del blog",
         "saved": "Blog guardado",
-        "selectImage": "Seleccione una imagen"
+        "selectImage": "Seleccione una imagen",
+        "createBlog": "Crear Entrada del Blog",
+        "suggestions": "Ir a las sugerencias"
     },
     "sideMenu": {
         "lastArticle": "Artículo más nuevo",
