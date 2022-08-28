@@ -1,16 +1,16 @@
-<h1 class="text-center bold italic">{{ header | language }}</h1>
+<h1 class="text-center bold">{{ header | language }}</h1>
 <div class="container" fxLayout="row wrap">
-    <div fxFlex="25%" *ngFor="let item of streamToBeListed$ | async">
+    <button fxFlex="25%" *ngFor="let item of streamToBeListed$ | async">
         <mat-card>
             <mat-card-title>
                 <h5 class="ellipse">{{item.title}}</h5>
             </mat-card-title>
             <ng-container *ngTemplateOutlet="middleCard; context:{$implicit: item}"></ng-container>
             <mat-card-content>
-                <button type="button" (click)="buttonClick.next(item)">
+                <div type="button" (click)="buttonClick.next(item)">
                     <ng-container *ngTemplateOutlet="cardContent; context:{$implicit: item}"></ng-container>
-                </button>
+                </div>
             </mat-card-content>
         </mat-card>
-    </div>
+    </button>
 </div>
