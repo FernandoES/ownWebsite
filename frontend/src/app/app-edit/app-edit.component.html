@@ -4,9 +4,9 @@
 </ng-container>
 <ng-container *ngIf="!service.logged">
     <div [fxLayout]="'row'" fxLayoutGap="10px">
-        <a (click)="goToRestorePasswordMenu()">{{ "account.restorePassword" | language }}</a>
-        <a (click)="goTocreateAccountMenu()">{{ "account.createAccount" | language }}</a>
-        <a (click)="goToLoginMenu()">{{ "account.login" | language }}</a>
+        <a class="clickable-text" (click)="goToRestorePasswordMenu()">{{ "account.restorePassword" | language }}</a>
+        <a class="clickable-text" (click)="goTocreateAccountMenu()">{{ "account.createAccount" | language }}</a>
+        <a class="clickable-text" (click)="goToLoginMenu()">{{ "account.login" | language }}</a>
     </div>
     <ng-container [ngSwitch]="selectedLoginOption">
         <app-login (onLogin)="update()" *ngSwitchCase="LoginOption.LOGIN">{{ "account.login" | language }}</app-login>
