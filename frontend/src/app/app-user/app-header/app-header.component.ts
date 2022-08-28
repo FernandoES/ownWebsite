@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
+import { AppAccountService } from 'src/app/app-edit/app-account.service';
 import { LanguageService } from 'src/language/language.service';
 
 export interface LinkOption  {
@@ -36,7 +37,9 @@ export class AppHeaderComponent {
     }
   ];
 
-  constructor(_ref: ChangeDetectorRef, public language: LanguageService) { }
+  constructor(private _ref: ChangeDetectorRef, public language: LanguageService, public accountService: AppAccountService) {
+    this.accountService.loggedIn$.subscribe(() => this._ref.markForCheck());
+   }
 
   changeLanguage(lng: string) {
     this.language.changeLanguage(lng);

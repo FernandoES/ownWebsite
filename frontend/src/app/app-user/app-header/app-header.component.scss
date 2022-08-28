@@ -18,5 +18,13 @@
                 font-size: large;
             }
         }
+        .loggedIn{
+            line-height: 2rem;
+            color: green;
+        }
+        .notLoggedIn {
+            line-height: 2rem;
+            color: inherit;
+        }
     }
 }

@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { Subject, tap } from 'rxjs';
 
 @Injectable()
 export class AppAccountService {
     logged = false;
+    loggedIn$ = new Subject<boolean>();
     userMail: string;
     apiBaseUrl = '/api/login';
     constructor(private _http : HttpClient) { }
@@ -12,6 +13,7 @@ export class AppAccountService {
         return this._http.post(`${this.apiBaseUrl}/login`, {userMail, password }).pipe(tap({
             next: () => {
                 this.logged = true;
+                this.loggedIn$.next(true);
                 this.userMail = userMail;
             }
         }));

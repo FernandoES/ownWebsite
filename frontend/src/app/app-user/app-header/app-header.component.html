@@ -6,8 +6,11 @@
                 <a [routerLink]="option.url">{{ option.slug | language }}</a>
             </li>
         </ul>
-        <div class="right" fxLayout="row" fxLayoutGap="10px">
-            <button *ngFor="let language of language.availableLanguages" type="button" class="btn waves-effect waves-light blue" mat-raised-button (click)="changeLanguage(language)">{{ language }}</button>
+        <div class="right" fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="10px">
+                <button *ngFor="let language of language.availableLanguages" type="button" class="btn waves-effect waves-light blue" mat-raised-button (click)="changeLanguage(language)">{{ language }}</button>
+            </div>
+            <a [class]="accountService.logged ? 'loggedIn' : 'notLoggedIn'" [routerLink]="'edit'">{{ (accountService.logged ? 'common.loggedIn' : 'common.notLoggedIn') | language }}</a>
         </div>
     </div>
 </nav>

@@ -13,7 +13,9 @@
         "requiredEmail": "E-Mail obligatorio",
         "reset": "Valores restaurados",
         "password": "Contraseña",
-        "loading": "Cargando"
+        "loading": "Cargando",
+        "loggedIn": "Registrado",
+        "notLoggedIn": "No registrado"
     },
     "header": {
         "blog": "Blog",
