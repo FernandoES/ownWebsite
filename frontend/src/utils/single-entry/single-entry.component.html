@@ -1,0 +1,17 @@
+<ng-container *ngIf=" entry$ | async as entry; else loadingOrError" >
+    <div>
+        <h1>{{ entry.title }}</h1>
+        <img *ngIf="entry.imagePath" class="image" alt="img" [src]="entry.imagePath" width="500">
+        <div [fxLayout]="'row'" name="author">
+            <p class="author">By {{ entry.author }}</p>
+            <p class="date">&nbsp;at {{ entry.date | date }}</p>
+        </div>
+        <showdown [value]="entry.body"></showdown>
+    </div>
+</ng-container>
+<ng-template #loadingOrError>
+    <div *ngIf="error$ | async as error; else loading">
+        <h1 class="error-whole-window">{{ error | language }}</h1>
+    </div>
+    <ng-template #loading>{{ 'common.loading' | language }}</ng-template>
+</ng-template>

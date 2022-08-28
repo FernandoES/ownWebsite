@@ -7,6 +7,7 @@ import { AppArticleService } from './app-article.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShowdownModule } from 'ngx-showdown';
 import { LanguageModule } from 'src/language/language.module';
+import { OwnUtilsModule } from 'src/utils/own-utils.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LanguageModule } from 'src/language/language.module';
     AppArticleRoutingModule,
     FlexLayoutModule,
     ShowdownModule, 
-    LanguageModule
+    LanguageModule,
+    OwnUtilsModule
   ],
   providers: [
     AppArticleService

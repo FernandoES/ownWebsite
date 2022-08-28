@@ -6,6 +6,7 @@ import { ShowdownModule } from 'ngx-showdown';
 import { AppBlogRoutingModule } from 'src/app/app-user/app-blog/app-blog-routing.module';
 import { LanguageModule } from 'src/language/language.module';
 import { AppCardsPresentationComponent } from './app-cards-presentation/app-cards-presentation.component';
+import { SingleEntryComponent } from './single-entry/single-entry.component';
 
 
 @NgModule({
@@ -17,8 +18,8 @@ import { AppCardsPresentationComponent } from './app-cards-presentation/app-card
         FlexLayoutModule,
         LanguageModule,
     ],
-    exports: [AppCardsPresentationComponent],
-    declarations: [AppCardsPresentationComponent],
+    exports: [AppCardsPresentationComponent, SingleEntryComponent],
+    declarations: [AppCardsPresentationComponent, SingleEntryComponent],
     providers: [],
 })
 export class OwnUtilsModule { }

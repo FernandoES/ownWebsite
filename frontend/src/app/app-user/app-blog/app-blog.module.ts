@@ -21,7 +21,8 @@ import { OwnUtilsModule } from 'src/utils/own-utils.module';
     ShowdownModule,
     MatCardModule,
     FlexLayoutModule,
-    LanguageModule
+    LanguageModule,
+    OwnUtilsModule
   ],
   providers: [ ]
 })
