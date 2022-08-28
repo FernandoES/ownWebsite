@@ -1,6 +1,14 @@
-<h1 class="text-center bold italic">{{ "blogList.available" | language }}</h1>
+<app-cards-presentation [streamToBeListed$]="blogList$" header="blogList.available" (buttonClick)="goToArticle($event)">
+    <ng-template class="picture-container" #middleCard="" let-item="">
+        <img *ngIf="item.imagePath" class="image" alt="img" [src]="item.imagePath" width="100%" height="100px">
+    </ng-template>
+    <ng-template #cardContent="" let-item="">
+        <showdown [value]="item.body" select="cardContent"></showdown>
+    </ng-template>
+</app-cards-presentation>
+<!--<h1 class="text-center bold italic">{{ "blogList.available" | language }}</h1>
 <div class="container" fxLayout="row wrap">
-    <button fxFlex="25%" *ngFor="let item of blogList$ | async as list" type="button" (click)="goToArticle(item)">
+    <button fxFlex="25%" *ngFor="let item of blogList$ | async as list" type="button" (click)="buttonClick($event)">
         <mat-card>
             <mat-card-title>
                 <h5 class="ellipse">{{item.title}}</h5>
@@ -13,4 +21,4 @@
             </mat-card-content>
         </mat-card>
     </button>
-</div>
+</div>--->
