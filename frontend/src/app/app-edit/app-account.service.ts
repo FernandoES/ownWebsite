@@ -7,14 +7,17 @@ export class AppAccountService {
     logged = false;
     loggedIn$ = new Subject<boolean>();
     userMail: string;
+    userName: string;
     apiBaseUrl = '/api/login';
     constructor(private _http : HttpClient) { }
     sendLogin(userMail: string, password: string){
         return this._http.post(`${this.apiBaseUrl}/login`, {userMail, password }).pipe(tap({
-            next: () => {
+            next: (response: any) => {
                 this.logged = true;
                 this.loggedIn$.next(true);
-                this.userMail = userMail;
+                this.userMail = response.params.userMail;
+                this.userName = response.params.userName;
+
             }
         }));
     }
@@ -23,7 +26,7 @@ export class AppAccountService {
         {userMail: userMail, oldPassword: oldPassword, newPassword: newPassword});
     }
 
-    createAccount(userMail: string, password: string){
-        return this._http.post(`${this.apiBaseUrl}/createAccount`, {userMail, password });
+    createAccount(userMail: string, userName: string, password: string){
+        return this._http.post(`${this.apiBaseUrl}/createAccount`, {userMail, userName,password });
     }
 }

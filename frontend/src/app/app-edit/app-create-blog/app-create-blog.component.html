@@ -6,7 +6,6 @@
     <input hidden #imageInput type="file" (change)="setFile($event)">
     <span class="file-name">{{image?.name}}</span>
   </div>
-
   <form #createBlogForm="ngForm" (ngSubmit)="saveBlog()">
     <div  [fxLayout]="'row'">
           <mat-form-field [fxLayout]="'row'" appearance="fill">

@@ -1,4 +1,4 @@
-<h1 class="text-center bold italic">{{ "suggestions.header" | language }}</h1>
+<h1 class="text-center bold">{{ "suggestions.header" | language }}</h1>
 <h4 class="text-center">{{ "suggestions.explanation" | language }}</h4>
 <form #suggestionForm="ngForm" (ngSubmit)="sendSuggestion()">
     <div name="inputFields">
@@ -13,9 +13,9 @@
         </mat-form-field>
         <textarea name="body" [(ngModel)]="suggestion.body" #suggestionsInput="ngModel"></textarea>
         <mat-error><span [hidden]="!(suggestionsInput.errors && suggestionsInput.errors['required'])">{{ "common.requiredField" | language }}</span></mat-error>
+        <div class="buttons" *ngIf="!suggestionForm.pristine">
+          <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" (click)="resetForm()" type="button">{{ "common.cancel" | language }}</button>
+          <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" color="primary">{{ "common.save" | language }}</button>
+        </div>
     </div>
-  <div class="buttons" *ngIf="!suggestionForm.pristine">
-    <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" (click)="resetForm()" type="button">{{ "common.cancel" | language }}</button>
-    <button class="btn waves-effect waves-light" mat-raised-button="mat-raised-button" color="primary">{{ "common.save" | language }}</button>
-  </div>
 </form>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { IBlogEntry } from '../app-user.service';
 
 
@@ -20,6 +20,10 @@ export class AppArticleService {
               const urlToBlob = window.URL.createObjectURL(x)
               return this.sanitizer.bypassSecurityTrustResourceUrl(urlToBlob); 
             }))
+    }
+
+    deleteArticle(articleId: string) {
+        return this._http.delete(`${this.apiBaseUrl}/article/${articleId}`);
     }
     
 }

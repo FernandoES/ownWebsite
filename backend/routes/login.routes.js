@@ -21,9 +21,7 @@ const auth = () => {
   }
 }
 
-router.post('/login', auth() , (req, res) => {
-  res.status(200).json({"statusCode" : 200 ,"message" : "response.login.success.logged"});
-});
+router.post('/login', auth() , userCtrl.login);
 
 router.post('/createAccount', userCtrl.createAccount);
 router.post('/restorePassword', userCtrl.restorePassword);

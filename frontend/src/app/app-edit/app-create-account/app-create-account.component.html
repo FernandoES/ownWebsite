@@ -6,6 +6,10 @@
             <input  [fxFlex]="'0 0 50%'" type="email" id="email" #emailControl="ngModel" email placeholder="{{ 'common.eMail' | language }}" required name="email" [(ngModel)]="userMail"/>
         </div>
         <div [fxLayout]="'row'">
+            <label for="name" [fxFlex]="'0 0 25%'">{{ "common.eMail" | language }}:</label>
+            <input  [fxFlex]="'0 0 50%'" type="text" id="name" #emailControl="ngModel" name placeholder="{{ 'common.name' | language }}" required name="name" [(ngModel)]="userName"/>
+        </div>
+        <div [fxLayout]="'row'">
             <label for="password" [fxFlex]="'0 0 25%'">{{ "common.password" | language }}:</label>
             <input  [fxFlex]="'0 0 50%'" type="password" id="password" #passwordControl="ngModel" placeholder="{{ 'common.password' | language }}" required name="password" [(ngModel)]="password"/>
         </div>

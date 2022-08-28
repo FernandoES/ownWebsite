@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, filter, map, Subject } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
+import { NotificationService } from 'src/utils/notification.service';
+import { AppAccountService } from '../app-account.service';
+import { ISuggestionEnhanced } from '../app-suggestions-list/app-suggestions-list.component';
 import { AppSuggestionsListService } from '../app-suggestions-list/app-suggestions-list.service';
 
 @Component({
@@ -10,10 +13,23 @@ import { AppSuggestionsListService } from '../app-suggestions-list/app-suggestio
 
 export class AppSingleSuggestion implements OnInit {
     error$ = new Subject<string>();
-    public singleSuggestion$: Observable<IBlogEntry>;
-    constructor(public service: AppSuggestionsListService) { }
+    public singleSuggestion$: Observable<ISuggestionEnhanced>;
+    constructor(public service: AppSuggestionsListService, public accountService: AppAccountService, private _notificationService: NotificationService) { }
 
     ngOnInit() {
-        this.singleSuggestion$ = this.service.selectedSuggestion.asObservable();
+        this.singleSuggestion$ = this.service.selectedSuggestion.asObservable().pipe(
+            filter(suggestion => suggestion != null),
+            map(suggestion => suggestion as ISuggestionEnhanced)
+        );
+    }
+
+    deleteSuggestion(suggestion: IBlogEntry) {
+        return this.service.deleteSuggestion(suggestion._id ?? '').subscribe({
+            next: () => {
+                this._notificationService.success('suggestions.deleted');
+                this.service.selectSuggestion(null);
+            },
+            error: e => this._notificationService.error(e)
+        });
     }
 }

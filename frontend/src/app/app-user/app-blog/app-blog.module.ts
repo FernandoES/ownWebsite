@@ -8,6 +8,7 @@ import { LanguageModule } from 'src/language/language.module';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { OwnUtilsModule } from 'src/utils/own-utils.module';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { OwnUtilsModule } from 'src/utils/own-utils.module';
     MatCardModule,
     FlexLayoutModule,
     LanguageModule,
-    OwnUtilsModule
+    OwnUtilsModule,
+    MatIconModule
   ],
   providers: [ ]
 })

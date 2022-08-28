@@ -8,7 +8,8 @@ export interface IBlogEntry {
     body: string;
     _id?: string;
     date?: string;
-    author?: string;
+    authorName?: string;
+    authorMail?: string;
     imageName?: string;
     imagePath?: SafeResourceUrl;
 }

@@ -1,1 +1,6 @@
-<single-entry [entry$]="article$" [error$]="error$"></single-entry>
+<single-entry
+    [showDeleteButton]="showDeleteButton"
+    (deleteClick)="deleteArticle($event)"
+    [entry$]="article$"
+    [error$]="error$">
+</single-entry>

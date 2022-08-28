@@ -9,7 +9,7 @@ userCtrl.createAccount = async (req,res) => {
     }
     else {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const user = new User({userMail: req.body.userMail, password: hashedPassword});
+        const user = new User({userMail: req.body.userMail, userName: req.body.userName, password: hashedPassword});
         try {
             await user.save();
             res.json({
@@ -34,7 +34,7 @@ userCtrl.restorePassword = async (req,res) => {
         try {
             if (await bcrypt.compare(req.body.oldPassword, user.password)) {
                 const hashedNewPassword = await bcrypt.hash(req.body.newPassword, 10);
-                User.findByIdAndUpdate(user._id, { password: hashedNewPassword });
+                await User.findByIdAndUpdate(user._id, { password: hashedNewPassword });
                 res.json({'status': 'User password changed properly'});
                 return;
             }
@@ -46,6 +46,12 @@ userCtrl.restorePassword = async (req,res) => {
         }
     }
 }
+
+userCtrl.login = async (req, res) => {
+    const user = await User.findOne({userMail: req.user.userMail});
+    res.status(200).json({"statusCode" : 200 ,"message" : "response.login.success.logged", 
+    params: {userMail: user.userMail, userName: user.userName } });
+  }
 
 userCtrl.getEmployeeByUserMail = async (userMail) => {
     return await User.findOne({userMail: userMail});

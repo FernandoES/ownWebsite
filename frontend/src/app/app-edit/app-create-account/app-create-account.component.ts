@@ -16,6 +16,7 @@ import { AppAccountService } from '../app-account.service';
 export class AppCreateAccountComponent {
   @ViewChild('createForm', { static: true }) createForm: NgForm;
   userMail: string;
+  userName: string;
   password: string;
   constructor(private _service: AppAccountService, private _notification: NotificationService) { 
     this._resetValues();
@@ -25,7 +26,7 @@ export class AppCreateAccountComponent {
     if(this.createForm.invalid) {
       return;
     }
-    this._service.createAccount(this.userMail, this.password).subscribe({next: _ => {
+    this._service.createAccount(this.userMail, this.userName, this.password).subscribe({next: _ => {
       this._notification.success("account.created");
       this.resetForm(true);
     }});

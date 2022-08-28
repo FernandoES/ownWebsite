@@ -24,6 +24,16 @@ suggestionCtrl.getSuggestionList = async (req, res) => {
     catch (e){
         res.status(400).json({ 'status': 'response.error.unknown' })
     }
-}
+};
+
+suggestionCtrl.deleteSuggestion = async (req, res) => {
+    try {
+        await Suggestion.findByIdAndRemove(req.params.id);
+        res.json({'status': "deleted"})
+    }
+    catch (e){
+        res.status(400).json({ 'status': 'response.error.unknown' })
+    }   
+};
 
 module.exports = suggestionCtrl;

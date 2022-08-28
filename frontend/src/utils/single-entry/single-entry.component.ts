@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, ViewEncapsulation } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
 
@@ -14,5 +14,7 @@ import { IBlogEntry } from 'src/app/app-user/app-user.service';
 export class SingleEntryComponent {
     @Input() entry$: Observable<IBlogEntry>;
     @Input() error$: Subject<string>;
+    @Input() showDeleteButton = false;
+    @Output() deleteClick = new Subject<IBlogEntry>();
     constructor() {}
 }

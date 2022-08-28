@@ -1,7 +1,6 @@
 <app-cards-presentation [streamToBeListed$]="blogList$" header="blogList.available" (buttonClick)="goToArticle($event)">
     <ng-template class="picture-container" #middleCard="" let-item="">
         <img *ngIf="item.imagePath" class="image" alt="img" [src]="item.imagePath" width="100%" height="100px">
-        <span class="clickable-text delete-button" (click)="deleteEntry(item)">{{ 'common.delete' | language }}</span>
     </ng-template>
     <ng-template #cardContent="" let-item="">
         <showdown [value]="item.body" select="cardContent"></showdown>

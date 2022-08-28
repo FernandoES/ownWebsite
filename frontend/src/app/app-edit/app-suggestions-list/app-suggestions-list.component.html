@@ -1,9 +1,5 @@
 <app-cards-presentation [streamToBeListed$]="suggestionsList$" header="blogList.available" (buttonClick)="goToSuggestion($event)">
-    <ng-template  #middleCard="" let-item="">
-        <span class="clickable-text delete-button" (click)="deleteEntry(item)">{{ 'common.delete' | language }}</span>
-    </ng-template>
     <ng-template #cardContent="" let-item="">
         <showdown [value]="item.body" select="cardContent"></showdown>
-        <span class="clickable-text" (click)="deleteEntry(item)">{{ 'common.delete' | language }}</span>
     </ng-template>
 </app-cards-presentation>

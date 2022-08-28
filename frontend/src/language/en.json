@@ -25,12 +25,14 @@
         "login": "Login"
     },
     "blogList": {
-        "available": "Available entries"
+        "available": "Available entries",
+        "articleDeleted": "Article deleted"
     },
     "suggestions": {
         "header": "Here you can send suggestions to the editor",
         "explanation": "Please, feel free to show your opinion",
-        "sent": "Suggestion sent"
+        "sent": "Suggestion sent",
+        "deleted": "Suggestion deleted"
     },
     "account": {
         "loginHeader": "Login to edit and create new entries",
@@ -60,7 +62,8 @@
     "response": {
         "article": {
             "error": {
-                "noArticleId": "The required article could not be found"
+                "noArticleId": "The required article could not be found",
+                "notAuthor": "The athenticated user is not the author of the article"
             },
             "success": {
                 "saved": "Article saved"

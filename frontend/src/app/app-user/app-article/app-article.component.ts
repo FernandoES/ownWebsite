@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute,  } from '@angular/router';
-import { catchError, map, Observable, of, Subject, switchMap } from 'rxjs';
+import { ActivatedRoute, Router,  } from '@angular/router';
+import { catchError, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
+import { AppAccountService } from 'src/app/app-edit/app-account.service';
+import { NotificationService } from 'src/utils/notification.service';
 import { IBlogEntry } from '../app-user.service';
 import { AppArticleService } from './app-article.service';
 
@@ -15,6 +17,7 @@ export class AppArticleComponent {
 
   public article$: Observable<IBlogEntry> = this._route.params.pipe(
     switchMap(params => this.service.fetchSigleArticle(params['id'])),
+    tap(response => this.userMail = response.authorMail ?? ''),
     switchMap(response => {
       if (response?.imageName) {
         return this.service.fetchImage(response.imageName).pipe(map(imagePath => {
@@ -27,7 +30,25 @@ export class AppArticleComponent {
       return of();
     })
     );
+    userMail: string;
+    get showDeleteButton() {
+      return this.accountService.logged && (!this.userMail || this.userMail === this.accountService.userMail);
+    }
 
+  constructor(
+    public service: AppArticleService,
+    private _route: ActivatedRoute,
+    private _router: Router,
+    public accountService: AppAccountService,
+    private notification: NotificationService) { }
 
-  constructor(public service: AppArticleService, private _route: ActivatedRoute) {   }
+    deleteArticle(article: IBlogEntry){
+      this.service.deleteArticle(article._id ?? '').subscribe(
+        {next: () => {
+          this.notification.success('blogList.articleDeleted');
+          this._router.navigateByUrl('');
+        },
+        error: e => this.notification.error(e.status)}
+      );
+    }
 }

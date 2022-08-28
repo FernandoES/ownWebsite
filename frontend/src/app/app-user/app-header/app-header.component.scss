@@ -21,10 +21,12 @@
         .loggedIn{
             line-height: 2rem;
             color: green;
+            text-align: center;
         }
         .notLoggedIn {
             line-height: 2rem;
             color: inherit;
+            text-align: center;
         }
     }
 }

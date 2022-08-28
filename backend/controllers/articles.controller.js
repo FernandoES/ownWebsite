@@ -11,7 +11,8 @@ articleCtrl.getArticlesList = async (req, res) => {
     const articles = await Article.find();
     res.json(articles.map(article => {
         return {...article,
-            author: article.author,
+            authorName: article.authorName,
+            authorMail: article.authorMail,
             date: article.date,
             title: article.title,
             _id: article._id,
@@ -44,6 +45,7 @@ articleCtrl.getImage = async (req, res) => {
 
 articleCtrl.saveArticle = async (req, res) => {
     try {
+        console.log("Saving article");
         const article = new Article({...req.body, date: new Date() });
         await article.save();
         res.json({
@@ -66,6 +68,23 @@ articleCtrl.uploadImage = async (req, res) => {
         return;
     }
         res.json({'imageName': file.filename});
+}
+
+articleCtrl.deleteArticle = async (req, res) => {
+    try {
+        if(req.params.id) {
+            const articleToDelete = await Article.findById(req.params.id);
+            if (articleToDelete.authorMail != req.user.authorMail) {
+                res.status(400).json({'status': 'response.error.notAuthor'})
+            }
+            await Article.findByIdAndDelete(req.params.id);
+            res.json({'status': 'response.success.articleDeleted'});
+            return;
+        }
+    }
+    catch (e){
+        res.status(400).json(utils.showSchemaError(Article))
+    }
 }
 
  function downloadImage(imageName, res)  {

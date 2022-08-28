@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { ShowdownModule } from 'ngx-showdown';
 import { AppBlogRoutingModule } from 'src/app/app-user/app-blog/app-blog-routing.module';
 import { LanguageModule } from 'src/language/language.module';
@@ -17,6 +18,7 @@ import { SingleEntryComponent } from './single-entry/single-entry.component';
         MatCardModule,
         FlexLayoutModule,
         LanguageModule,
+        MatIconModule,
     ],
     exports: [AppCardsPresentationComponent, SingleEntryComponent],
     declarations: [AppCardsPresentationComponent, SingleEntryComponent],

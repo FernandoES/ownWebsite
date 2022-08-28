@@ -54,7 +54,4 @@ export class AppBlogComponent implements OnInit {
     const second = new Date(secondArticle.date);
     return second.getTime() - first.getTime();
   }
-  
-  deleteEntry(blogEntry: IBlogEntry){
-  }
 }

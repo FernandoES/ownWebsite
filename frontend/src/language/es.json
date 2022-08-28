@@ -25,7 +25,8 @@
         "login": "Acceder"
     },
     "blogList": {
-        "available": "Entradas disponibles"
+        "available": "Entradas disponibles",
+        "articleDeleted": "Artículo borrado"
     },
     "suggestions": {
         "header": "Aquí puede enviar sugerencias al editor",
@@ -60,10 +61,12 @@
     "response": {
         "article": {
             "error": {
-                "noArticleId": "No se ha encontrado el artículo requrido"
+                "noArticleId": "No se ha encontrado el artículo requrido",
+                "notAuthor": "El usuario autenticado no es el autor del Artículo"
             },
             "success": {
-                "saved": "Artículo guardado"
+                "saved": "Artículo guardado",
+                "articleDeleted": "Artículo borrado"
             }
         },
         "login": {
