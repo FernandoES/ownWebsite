@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 export interface IBlogEntry {
     title: string;

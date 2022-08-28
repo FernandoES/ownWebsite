@@ -37,5 +37,4 @@ export class AppEditComponent {
   update() {
     this._ref.markForCheck()
   }
-
 }

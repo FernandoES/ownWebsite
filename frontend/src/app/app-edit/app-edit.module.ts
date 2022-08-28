@@ -53,7 +53,6 @@ import { AppSingleSuggestion } from './app-single-suggestion/app-single-suggesti
     ShowdownModule
   ],
   providers: [
-    AppAccountService,
     AppCreateBlogService,
     AppSuggestionsListService
   ]
