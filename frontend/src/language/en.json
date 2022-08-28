@@ -5,11 +5,11 @@
         "name": "name",
         "eMail": "E-Mail",
         "title": "Title",
-        "search": "Search Entry",
+        "search": "Search entry",
         "cancel": "cancel",
         "save": "save",
         "send": "send",
-        "requiredField": "Field Required",
+        "requiredField": "Field required",
         "requiredEmail": "E-Mail required",
         "reset": "Values reset",
         "password": "Password",
@@ -25,7 +25,7 @@
         "login": "Login"
     },
     "blogList": {
-        "available": "Available Entries"
+        "available": "Available entries"
     },
     "suggestions": {
         "header": "Here you can send suggestions to the editor",
@@ -35,26 +35,26 @@
     "account": {
         "loginHeader": "Login to edit and create new entries",
         "restorePassword": "Restore password",
-        "createAccount": "Create Account",
+        "createAccount": "Create account",
         "restore": "Restore",
         "create": "Create",
         "login": "Login",
-        "oldPassword": "Old Password",
-        "newPassword": "New Password",
+        "oldPassword": "Old password",
+        "newPassword": "New password",
         "created": "Account created",
         "restored": "Password restored"
     },
     "editor": {
-        "header": "Text Editor",
+        "header": "Text editor",
         "explanation": "Create a new blog entry",
         "saved": "Blog saved",
-        "selectImage": "Select Picture",
+        "selectImage": "Select picture",
         "createBlog": "Create new blog entry",
         "suggestions": "Go to suggestions list"
     },
     "sideMenu": {
-        "lastArticle": "Latest Article",
-        "randomArticle": "Random Article",
+        "lastArticle": "Latest article",
+        "randomArticle": "Random article",
         "searchEntry": "Search"
     },
     "response": {
@@ -82,7 +82,7 @@
             "required": "The following values are required"
         },
         "error": {
-            "unknown": "Unknown Error"
+            "unknown": "Unknown error"
         }
     }
 }

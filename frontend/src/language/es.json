@@ -49,7 +49,7 @@
         "explanation": "Crear una nueva entra del blog",
         "saved": "Blog guardado",
         "selectImage": "Seleccione una imagen",
-        "createBlog": "Crear Entrada del Blog",
+        "createBlog": "Crear entrada del blog",
         "suggestions": "Ir a las sugerencias"
     },
     "sideMenu": {
@@ -79,10 +79,10 @@
             "saved": "Sugerencia guardada"
         },
         "common": {
-            "required": "The following values are required"
+            "required": "Los valores siguientes son obligatorios"
         },
         "error": {
-            "unknown": "Unknown Error"
+            "unknown": "Error desconocido"
         }
     }
 }
