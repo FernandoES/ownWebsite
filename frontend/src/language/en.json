@@ -48,7 +48,8 @@
     },
     "editor": {
         "header": "Text editor",
-        "explanation": "Create a new blog entry",
+        "createExplanation": "Create a new blog entry",
+        "editExplanation": "Edit an existing blog entry",
         "saved": "Blog saved",
         "selectImage": "Select picture",
         "createBlog": "Create new blog entry",

@@ -31,7 +31,7 @@ export class AppArticleComponent {
     })
     );
     userMail: string;
-    get showDeleteButton() {
+    get showEditButton() {
       return this.accountService.logged && (!this.userMail || this.userMail === this.accountService.userMail);
     }
 
@@ -50,5 +50,9 @@ export class AppArticleComponent {
         },
         error: e => this.notification.error(e.status)}
       );
+    }
+
+    editArticle(article: IBlogEntry) {
+      this._router.navigateByUrl(`/edit/${article._id}`);
     }
 }

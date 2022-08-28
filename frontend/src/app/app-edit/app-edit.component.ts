@@ -21,7 +21,10 @@ export class AppEditComponent {
   LoginOption = LoginOption;
   userMail: string;
   userPassword: string;
-  constructor(public service: AppAccountService, private _ref: ChangeDetectorRef) { }
+  entryId: string;
+  constructor(public service: AppAccountService, private _ref: ChangeDetectorRef) {
+    
+   }
   goToRestorePasswordMenu() {
     this.selectedLoginOption = LoginOption.RESTORE;
   }

@@ -16,5 +16,7 @@ export class SingleEntryComponent {
     @Input() error$: Subject<string>;
     @Input() showDeleteButton = false;
     @Output() deleteClick = new Subject<IBlogEntry>();
+    @Input() showEditButton = false;
+    @Output() editClick = new Subject<IBlogEntry>();
     constructor() {}
 }

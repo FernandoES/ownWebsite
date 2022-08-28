@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
 import { NotificationService } from 'src/utils/notification.service';
 import { AppCreateBlogService } from './app-create-blog.service';
@@ -17,10 +19,17 @@ import { AppCreateBlogService } from './app-create-blog.service';
 export class AppCreateBlogComponent {
   @ViewChild('createBlogForm', { static: true }) createBlogForm: NgForm;
 
+  existingArticleInformation$: Observable<IBlogEntry | null>;
   blog: IBlogEntry;
   image: File;
-  constructor(private _service: AppCreateBlogService, private _notification: NotificationService) {
+  entryId: string;
+  constructor(
+    private _service: AppCreateBlogService, 
+    private _notification: NotificationService, 
+    private _route: ActivatedRoute, 
+    private _ref: ChangeDetectorRef) {
     this.resetValues();
+    this.assignExistingInformation();
    }
   resetForm(avoidInform: boolean = false) {
     this.resetValues();
@@ -33,18 +42,34 @@ export class AppCreateBlogComponent {
     this.blog = {
       title: "",
       body: "",
+    }
+
   }
 
-}
-
-setFile(event: Event) {
-  const target = event.target as HTMLInputElement;
-  if (target.files && target.files.length > 0){
-    this.image = target.files[0];
+  setFile(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0){
+      this.image = target.files[0];
+    }
   }
-}
 
-saveBlog() {
-  this._service.saveBlog(this.blog, this.image).subscribe({next: () => this._notification.success("editor.saved")});
-}
+  saveBlog() {
+    if (this.entryId) {
+      this._service.editBlog(this.blog, this.entryId).subscribe({
+        next: (response: any) => this._notification.success(response.status),
+        error: (response: any) => this._notification.error(response.error.message)
+      });
+    }
+    else {
+      this._service.saveBlog(this.blog, this.image).subscribe({next: () => this._notification.success("editor.saved")});
+    }
+  }
+  assignExistingInformation() {
+    this.entryId = this._route.snapshot.paramMap.get('id') as string;
+    if (this.entryId) {
+      this._service.fetchSigleArticle(this.entryId).subscribe(article => {
+        this.blog = article;
+        this._ref.markForCheck()});
+    }
+  }
 }

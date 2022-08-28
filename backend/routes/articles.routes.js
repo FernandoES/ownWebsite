@@ -8,6 +8,7 @@ router.get('/articlesList', articleCtrl.getArticlesList);
 router.get('/article/:id', articleCtrl.getArticle);
 router.get('/image/:name', articleCtrl.getImage);
 router.post('/saveArticle',checkAuthenticated, articleCtrl.saveArticle);
+router.post('/editArticle/:id',checkAuthenticated, articleCtrl.editArticle);
 router.post('/image',multerInterceptor.single('file'), articleCtrl.uploadImage);
 router.delete('/article/:id',checkAuthenticated,articleCtrl.deleteArticle);
 

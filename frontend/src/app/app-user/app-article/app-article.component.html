@@ -1,6 +1,8 @@
 <single-entry
-    [showDeleteButton]="showDeleteButton"
+    [showDeleteButton]="showEditButton"
     (deleteClick)="deleteArticle($event)"
+    [showEditButton]="showEditButton"
+    (editClick)="editArticle($event)"
     [entry$]="article$"
     [error$]="error$">
 </single-entry>

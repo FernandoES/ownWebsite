@@ -13,9 +13,14 @@ export class AppCreateBlogService {
         const userMail = this._accountService.userMail;
         if (image) {
             return this.uploadImage(image)
-                .pipe(switchMap(response => this.saveArticle({...blog, author: userMail, imageName: response.imageName})));
+            .pipe(switchMap(response => this.saveArticle({...blog, author: userMail, imageName: response.imageName})));
         }
         return this.saveArticle({...blog, author: userMail})
+    }
+    
+    editBlog(blog: IBlogEntry, entryId: string) {
+        const userMail = this._accountService.userMail;
+        return this._http.post(`${this.apiBaseUrl}/editArticle/${entryId}`, {...blog, author: userMail})
     }
 
     saveArticle(blogValues: Object): Observable<Object> {
@@ -26,6 +31,10 @@ export class AppCreateBlogService {
         const formData = new FormData();
         formData.append('file', image);
         return this._http.post<{imageName: string}>(`${this.apiBaseUrl}/image`, formData);
+    }
+    
+    fetchSigleArticle(id: string): Observable<IBlogEntry> {
+        return this._http.get<IBlogEntry>(`${this.apiBaseUrl}/article/${id}`);
     }
     
 }

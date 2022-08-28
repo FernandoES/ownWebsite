@@ -5,6 +5,10 @@ import { AppEditComponent } from './app-edit.component';
 const routes: Routes = [{
   path: '',
   component: AppEditComponent
+},
+{
+  path: ':id',
+  component: AppEditComponent
 }];
 
 @NgModule({

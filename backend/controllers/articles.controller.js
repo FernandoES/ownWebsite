@@ -43,13 +43,25 @@ articleCtrl.getImage = async (req, res) => {
     downloadImage(imageName, res);
 }
 
+articleCtrl.editArticle = async (req,res) => {
+    try {
+        if(req.params.id) {
+            await Article.findByIdAndUpdate(req.params.id, req.body);
+            res.json({"status": "response.article.success.saved"});
+        }
+    }
+    catch (e){
+        res.status(400).json(utils.showSchemaError(Article))
+    }
+}
+
 articleCtrl.saveArticle = async (req, res) => {
     try {
         console.log("Saving article");
         const article = new Article({...req.body, date: new Date() });
         await article.save();
         res.json({
-            'status': 'response.success.articleSaved'
+            'status': 'response.article.success.saved'
         })
     }
     catch (e){

@@ -12,7 +12,7 @@ const routes: Routes = [
       loadChildren: () => import('./app-user/app-user.module').then(m => m.AppUserModule)
     },
     {
-      path: 'edit', 
+      path: 'edit',
       loadChildren: () => import('./app-edit/app-edit.module').then(m => m.AppEditModule)
     },
 ];
