@@ -16,4 +16,14 @@ suggestionCtrl.saveSuggestion = async (req, res) => {
     }
 };
 
+suggestionCtrl.getSuggestionList = async (req, res) => {
+    try {
+        const suggestions = await Suggestion.find();
+        res.json(suggestions);
+    }
+    catch (e){
+        res.status(400).json({ 'status': 'response.error.unknown' })
+    }
+}
+
 module.exports = suggestionCtrl;

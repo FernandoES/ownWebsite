@@ -18,6 +18,12 @@ import { AppCreateBlogComponent } from './app-create-blog/app-create-blog.compon
 import { MatInputModule } from '@angular/material/input';
 import { AppCreateBlogService } from './app-create-blog/app-create-blog.service';
 import { LanguageModule } from 'src/language/language.module';
+import { AppEditorAreaComponent } from './app-editor-area/app-editor-area.component';
+import { AppSuggestionsListComponent } from './app-suggestions-list/app-suggestions-list.component';
+import { AppSuggestionsListService } from './app-suggestions-list/app-suggestions-list.service';
+import { OwnUtilsModule } from 'src/utils/own-utils.module';
+import { ShowdownModule } from 'ngx-showdown';
+import { AppSingleSuggestion } from './app-single-suggestion/app-single-suggestion.component';
 
 
 @NgModule({
@@ -26,7 +32,10 @@ import { LanguageModule } from 'src/language/language.module';
     AppLoginComponent,
     AppRestorePasswordComponent,
     AppCreateAccountComponent,
-    AppCreateBlogComponent
+    AppCreateBlogComponent,
+    AppEditorAreaComponent,
+    AppSuggestionsListComponent,
+    AppSingleSuggestion
   ],
   imports: [
     CommonModule,
@@ -39,11 +48,14 @@ import { LanguageModule } from 'src/language/language.module';
     MatIconModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    LanguageModule
+    LanguageModule,
+    OwnUtilsModule,
+    ShowdownModule
   ],
   providers: [
     AppAccountService,
     AppCreateBlogService,
+    AppSuggestionsListService
   ]
 })
 export class AppEditModule { }

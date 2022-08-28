@@ -7,12 +7,8 @@ import { AppArticleService } from './app-article.service';
 @Component({
   selector: 'app-article',
   templateUrl: './app-article.component.html',
-  styleUrls: ['./app-article.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  host: {
-    class: 'app-article'
-  }
 })
 export class AppArticleComponent {
   error$ = new Subject<string>();

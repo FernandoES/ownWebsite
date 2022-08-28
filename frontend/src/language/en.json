@@ -77,6 +77,9 @@
         },
         "common": {
             "required": "The following values are required"
+        },
+        "error": {
+            "unknown": "Unknown Error"
         }
     }
 }
