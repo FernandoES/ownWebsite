@@ -15,7 +15,8 @@
         "password": "Password",
         "loading": "Loading",
         "loggedIn": "Logged in",
-        "notLoggedIn": "Not logged in"
+        "notLoggedIn": "Not logged in",
+        "delete": "Delete"
     },
     "header": {
         "blog": "Blog",

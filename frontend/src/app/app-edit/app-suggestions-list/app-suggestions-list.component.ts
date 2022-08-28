@@ -23,7 +23,9 @@ export class AppSuggestionsListComponent {
   }
 
   goToSuggestion(suggestion: IBlogEntry){
-    console.log("suggestion", suggestion);
     this._service.selectedSuggestion.next(suggestion);
+  }
+
+  deleteEntry(suggestion: IBlogEntry){
   }
 }

@@ -3,9 +3,11 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        button {
-            background:none; 
-            border:none;
+        > div {
+            button {
+                background:none; 
+                border:none;
+            }
             padding: 16px;
             :hover{
                 opacity: 0.5;

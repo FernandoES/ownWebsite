@@ -15,7 +15,8 @@
         "password": "Contraseña",
         "loading": "Cargando",
         "loggedIn": "Registrado",
-        "notLoggedIn": "No registrado"
+        "notLoggedIn": "No registrado",
+        "delete": "Borrar"
     },
     "header": {
         "blog": "Blog",
