@@ -22,7 +22,6 @@ export class AppAccountService {
                 this.loggedIn$.next(true);
                 this.userMail = response.params.userMail;
                 this.userName = response.params.userName;
-
             }
         }));
     }
@@ -36,7 +35,7 @@ export class AppAccountService {
     }
 
     checkIfLogged() {
-        return this._http.get<Logged>(`${this.apiBaseUrl}/isLogged`).pipe(map(response => {
+        return this._http.get<Logged>(`${this.apiBaseUrl}/isLogged`).pipe(tap(response => {
             this.logged = response.logged;
             if (this.logged) {
                 this.userMail = response.userMail as string;
@@ -44,6 +43,14 @@ export class AppAccountService {
                 this.loggedIn$.next(true);
             }
         }));
-        
+    }
+
+    logout() {
+        return this._http.delete<{status: string}>(`${this.apiBaseUrl}/logout`).pipe(tap(() => {
+            this.logged = false;
+            this.userMail = '';
+            this.userName = '';
+            this.loggedIn$.next(false);
+        }));
     }
 }

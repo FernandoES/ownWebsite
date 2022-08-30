@@ -9,9 +9,9 @@ import { LanguageModule } from 'src/language/language.module';
 import { NotificationService } from 'src/utils/notification.service';
 import { AppAccountRoutingModule } from './app-account-routing.module';
 import { AppAccountComponent } from './app-account.component';
-import { AppAccountService } from './app-account.service';
 import { AppCreateAccountComponent } from './app-create-account/app-create-account.component';
 import { AppLoginComponent } from './app-login/app-login.component';
+import { AppLogoutComponent } from './app-logout/app-logout.component';
 import { AppRestorePasswordComponent } from './app-restore-password/app-restore-password.component';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { AppRestorePasswordComponent } from './app-restore-password/app-restore-
         LanguageModule,
         AppAccountRoutingModule],
     exports: [],
-    declarations: [AppLoginComponent, AppRestorePasswordComponent, AppCreateAccountComponent, AppAccountComponent],
-    providers: [NotificationService, AppAccountService],
+    declarations: [AppLoginComponent, AppRestorePasswordComponent, AppCreateAccountComponent, AppAccountComponent, AppLogoutComponent],
+    providers: [NotificationService],
 })
 export class AppAccountModule { }

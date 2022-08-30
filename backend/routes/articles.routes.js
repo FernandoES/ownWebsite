@@ -1,5 +1,6 @@
 const articleCtrl = require('./../controllers/articles.controller');
 const multerInterceptor = require('./../interceptors/multer.interceptor')
+const utils = require('../utils/utils');
 
 const express = require('express');
 const router = express.Router();
@@ -7,18 +8,12 @@ const router = express.Router();
 router.get('/articlesList', articleCtrl.getArticlesList);
 router.get('/article/:id', articleCtrl.getArticle);
 router.get('/image/:name', articleCtrl.getImage);
-router.post('/saveArticle',checkAuthenticated, articleCtrl.saveArticle);
-router.post('/editArticle/:id',checkAuthenticated, articleCtrl.editArticle);
+router.post('/saveArticle',utils.checkAuthenticated, articleCtrl.saveArticle);
+router.post('/editArticle/:id',utils.checkAuthenticated, articleCtrl.editArticle);
 router.post('/image',multerInterceptor.single('file'), articleCtrl.uploadImage);
 router.post('/substituteImage/:imageName', articleCtrl.deleteImageIfThere, multerInterceptor.single('file'), articleCtrl.uploadImage);
-router.delete('/article/:id',checkAuthenticated,articleCtrl.deleteArticle);
+router.delete('/article/:id',utils.checkAuthenticated,articleCtrl.deleteArticle);
 
-function checkAuthenticated(req, res, next) {
-    if(req.isAuthenticated()) {
-        return next();
-    }
-    return null;
-}
 
 
 module.exports = router;

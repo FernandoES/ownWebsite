@@ -41,6 +41,8 @@
         "restore": "Restore",
         "create": "Create",
         "login": "Login",
+        "logout": "Log out",
+        "loggedOut": "Logged out",
         "oldPassword": "Old password",
         "newPassword": "New password",
         "created": "Account created",

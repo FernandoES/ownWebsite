@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const userCtrl = require('../controllers/login.controller');
+const utils = require('../utils/utils');
 
 const auth = () => {
   return (req, res, next) => {
@@ -26,5 +27,6 @@ router.post('/login', auth() , userCtrl.login);
 router.post('/createAccount', userCtrl.createAccount);
 router.post('/restorePassword', userCtrl.restorePassword);
 router.get('/isLogged', userCtrl.checkIfLogged);
+router.delete('/logout',utils.checkAuthenticated, userCtrl.logout);
 
 module.exports = router;

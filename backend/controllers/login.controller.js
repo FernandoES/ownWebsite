@@ -62,12 +62,19 @@ userCtrl.login = async (req, res) => {
     res.json({logged: false});
   }
 
-userCtrl.getEmployeeByUserMail = async (userMail) => {
-    return await User.findOne({userMail: userMail});
-}
+    userCtrl.getEmployeeByUserMail = async (userMail) => {
+        return await User.findOne({userMail: userMail});
+    }
 
-userCtrl.getEmployeeById = async (id) => {
-    return await User.findById(id);
-}
+    userCtrl.getEmployeeById = async (id) => {
+        return await User.findById(id);
+    }
+
+    userCtrl.logout = async (req,res, next) => {
+        req.logout((e) => {
+            if (e) {return next(e);}
+        })
+        res.json({'status': 'account.loggedOut'})
+    }
 
 module.exports = userCtrl;

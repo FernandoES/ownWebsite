@@ -40,6 +40,8 @@
         "restore": "Restaurar",
         "create": "Crear",
         "login": "Entrar",
+        "logout": "Salir del sistema",
+        "loggedOut": "Ha salido del sistema",
         "oldPassword": "Contraseña previa",
         "newPassword": "Contraseña nueva",
         "created": "Cuenta creada",

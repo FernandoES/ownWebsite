@@ -20,7 +20,9 @@ enum LoginOption {
 export class AppAccountComponent {
     selectedLoginOption: LoginOption = LoginOption.LOGIN;
     LoginOption = LoginOption;
-    constructor(public service: AppAccountService, private _ref: ChangeDetectorRef) { }
+    constructor(public service: AppAccountService, private _ref: ChangeDetectorRef) {
+      this.service.loggedIn$.subscribe(() => this._ref.markForCheck());
+     }
     goToRestorePasswordMenu() {
       this.selectedLoginOption = LoginOption.RESTORE;
     }

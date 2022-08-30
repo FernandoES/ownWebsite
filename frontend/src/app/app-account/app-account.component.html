@@ -1,5 +1,4 @@
-<div class="headerDiv"></div>
-<ng-container *ngIf="!service.logged">
+<ng-container *ngIf="!service.logged; else logout">
     <div [fxLayout]="'row'" fxLayoutGap="10px">
         <a class="clickable-text" (click)="goToRestorePasswordMenu()">{{ "account.restorePassword" | language }}</a>
         <a class="clickable-text" (click)="goTocreateAccountMenu()">{{ "account.createAccount" | language }}</a>
@@ -11,3 +10,6 @@
         <app-create-account *ngSwitchCase="LoginOption.CREATE">{{ "account.create" | language }}</app-create-account>
     </ng-container>
 </ng-container>
+<ng-template #logout>
+    <app-logout></app-logout>
+</ng-template>
