@@ -52,6 +52,7 @@
         "editExplanation": "Edit an existing blog entry",
         "saved": "Blog saved",
         "selectImage": "Select picture",
+        "substituteImage": "Substitute image",
         "createBlog": "Create new blog entry",
         "suggestions": "Go to suggestions list"
     },

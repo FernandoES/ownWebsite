@@ -36,11 +36,18 @@ articleCtrl.getArticle = async (req, res) => {
 };
 
 articleCtrl.getImage = async (req, res) => {
-    const imageName = req.params.name;
-    if(!imageName) {
-        res.status(400).json({'status': 'response.article.error.noImageName'});
+    try {
+        const imageName = req.params.name;
+        if(!imageName) {
+            res.status(400).json({'status': 'response.article.error.noImageName'});
+            return;
+        }
+        downloadImage(imageName, res);
+        return;
     }
-    downloadImage(imageName, res);
+    catch (e) {
+        res.status(400).json({'status': 'response.error.unknown'});
+    }
 }
 
 articleCtrl.editArticle = async (req,res) => {
@@ -57,12 +64,12 @@ articleCtrl.editArticle = async (req,res) => {
 
 articleCtrl.saveArticle = async (req, res) => {
     try {
-        console.log("Saving article");
         const article = new Article({...req.body, date: new Date() });
         await article.save();
         res.json({
             'status': 'response.article.success.saved'
-        })
+        });
+        return;
     }
     catch (e){
         res.status(400).json(utils.showSchemaError(Article))
@@ -99,12 +106,38 @@ articleCtrl.deleteArticle = async (req, res) => {
     }
 }
 
+articleCtrl.deleteImageIfThere = async (req, res, next) => {
+    try {
+        if(req.params.imageName){
+            const imagePath = getImageName(req.params.imageName);
+            const articleHasAlreadyAnImage = fs.existsSync(imagePath);
+            if(articleHasAlreadyAnImage) {
+                await fs.unlink(imagePath, (e) => {
+                    if (e) {
+                        throw e;
+                    }
+                });
+            }
+        }
+        next();
+    }
+    catch (e) {
+        return {'status': 'response.common.required', 'params': 'name'};
+    }
+}
+
  function downloadImage(imageName, res)  {
-    const imagePath = path.join(__dirname, '..', 'images', imageName);
-    const file = fs.readFileSync(imagePath, 'binary');
-    res.setHeader('Content-Length', file.length);
-    res.write(file, 'binary');
-    res.end();
+    try {
+
+        const imagePath = getImageName(imageName);
+        const file = fs.readFileSync(imagePath, 'binary');
+        res.setHeader('Content-Length', file.length);
+        res.write(file, 'binary');
+        res.end();
+    }
+    catch (e) {
+        throw e;
+    }
  }
 
  function cutTextAvoidingMarkdown(text) {
@@ -112,6 +145,10 @@ articleCtrl.deleteArticle = async (req, res) => {
     const markDownSymbolsOpened = markdownSymbols.filter(s => {
         return (reducedText.split(s)?.length -1)%2 > 0;});
     return reducedText + markDownSymbolsOpened.join(" ") + "...";
+ }
+
+ function getImageName(imageName) {
+    return path.join(__dirname, '..', 'images', imageName);
  }
 
 module.exports = articleCtrl;

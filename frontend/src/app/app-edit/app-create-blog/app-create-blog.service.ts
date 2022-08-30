@@ -18,13 +18,32 @@ export class AppCreateBlogService {
         return this.saveArticle({...blog, author: userMail})
     }
     
-    editBlog(blog: IBlogEntry, entryId: string) {
-        const userMail = this._accountService.userMail;
-        return this._http.post(`${this.apiBaseUrl}/editArticle/${entryId}`, {...blog, author: userMail})
+    editBlog(blog: IBlogEntry, entryId: string, image?: File) {
+        if (image && blog.imageName) {
+            return this.substituteImage(image, blog.imageName)
+            .pipe(switchMap(response => {
+                return this.editArticle({...blog, imageName: response.imageName}, entryId);}))
+        }
+        else if(image) {
+            return this.uploadImage(image)
+            .pipe(switchMap(response => this.editArticle({...blog, imageName: response.imageName}, entryId)));
+        }
+        return this.editArticle(blog, entryId);
+    }
+    
+    editArticle(blogValues: Object, entryId: string) {
+        return this._http.post(`${this.apiBaseUrl}/editArticle/${entryId}`, blogValues);
     }
 
+    
     saveArticle(blogValues: Object): Observable<Object> {
         return this._http.post(`${this.apiBaseUrl}/saveArticle`, blogValues);
+    }
+
+    substituteImage(image: File, oldImageName: string) {
+        const formData = new FormData();
+        formData.append('file', image);
+        return this._http.post<{imageName: string}>(`${this.apiBaseUrl}/substituteImage/${oldImageName}`, formData);
     }
 
     uploadImage(image: File): Observable<{imageName: string}> {

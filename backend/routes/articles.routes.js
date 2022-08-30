@@ -10,6 +10,7 @@ router.get('/image/:name', articleCtrl.getImage);
 router.post('/saveArticle',checkAuthenticated, articleCtrl.saveArticle);
 router.post('/editArticle/:id',checkAuthenticated, articleCtrl.editArticle);
 router.post('/image',multerInterceptor.single('file'), articleCtrl.uploadImage);
+router.post('/substituteImage/:imageName', articleCtrl.deleteImageIfThere, multerInterceptor.single('file'), articleCtrl.uploadImage);
 router.delete('/article/:id',checkAuthenticated,articleCtrl.deleteArticle);
 
 function checkAuthenticated(req, res, next) {

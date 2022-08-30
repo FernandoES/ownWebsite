@@ -43,7 +43,6 @@ export class AppCreateBlogComponent {
       title: "",
       body: "",
     }
-
   }
 
   setFile(event: Event) {
@@ -55,7 +54,7 @@ export class AppCreateBlogComponent {
 
   saveBlog() {
     if (this.entryId) {
-      this._service.editBlog(this.blog, this.entryId).subscribe({
+      this._service.editBlog(this.blog, this.entryId, this.image).subscribe({
         next: (response: any) => this._notification.success(response.status),
         error: (response: any) => this._notification.error(response.error.message)
       });

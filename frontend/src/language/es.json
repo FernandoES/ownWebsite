@@ -51,6 +51,7 @@
         "editExplanation": "Editar una entrada existente del blog",
         "saved": "Blog guardado",
         "selectImage": "Seleccione una imagen",
+        "substituteImage": "Substituir la imagen",
         "createBlog": "Crear entrada del blog",
         "suggestions": "Ir a las sugerencias"
     },
