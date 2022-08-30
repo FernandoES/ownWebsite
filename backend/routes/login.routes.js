@@ -25,5 +25,6 @@ router.post('/login', auth() , userCtrl.login);
 
 router.post('/createAccount', userCtrl.createAccount);
 router.post('/restorePassword', userCtrl.restorePassword);
+router.get('/isLogged', userCtrl.checkIfLogged);
 
 module.exports = router;

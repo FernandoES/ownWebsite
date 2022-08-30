@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, tap } from 'rxjs';
+import { map, Subject, tap } from 'rxjs';
 
+export interface Logged {
+    logged: true;
+    userMail?: string;
+    userName?: string;
+}
 @Injectable()
 export class AppAccountService {
     logged = false;
@@ -28,5 +33,17 @@ export class AppAccountService {
 
     createAccount(userMail: string, userName: string, password: string){
         return this._http.post(`${this.apiBaseUrl}/createAccount`, {userMail, userName,password });
+    }
+
+    checkIfLogged() {
+        return this._http.get<Logged>(`${this.apiBaseUrl}/isLogged`).pipe(map(response => {
+            this.logged = response.logged;
+            if (this.logged) {
+                this.userMail = response.userMail as string;
+                this.userName = response.userName as string;
+                this.loggedIn$.next(true);
+            }
+        }));
+        
     }
 }

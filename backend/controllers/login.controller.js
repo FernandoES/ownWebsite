@@ -48,9 +48,18 @@ userCtrl.restorePassword = async (req,res) => {
 }
 
 userCtrl.login = async (req, res) => {
-    const user = await User.findOne({userMail: req.user.userMail});
+    const user = await req.user;
     res.status(200).json({"statusCode" : 200 ,"message" : "response.login.success.logged", 
     params: {userMail: user.userMail, userName: user.userName } });
+  }
+
+  userCtrl.checkIfLogged = async (req, res) => {
+      if(req.user) {
+        const user = await req.user;
+        res.json({ logged: true, 'userMail': user.userMail, 'userName': user.userName });
+        return;
+    }
+    res.json({logged: false});
   }
 
 userCtrl.getEmployeeByUserMail = async (userMail) => {
