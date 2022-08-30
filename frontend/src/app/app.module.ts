@@ -11,7 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from 'src/utils/notification.service';
 import { I18NextModule, I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { LanguageModule } from 'src/language/language.module';
-import { AppAccountService } from './app-edit/app-account.service';
+import { AppAccountService } from './app-account/app-account.service';
 
 export function appInit(i18next: ITranslationService) {
   return () => i18next.init({

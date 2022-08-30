@@ -1,11 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
-import { AppAccountService } from './app-account.service';
+import { AppAccountService } from '../app-account/app-account.service';
 
-enum LoginOption {
-  LOGIN,
-  RESTORE,
-  CREATE
-}
 @Component({
   selector: 'app-edit',
   templateUrl: './app-edit.component.html',
@@ -17,27 +12,11 @@ enum LoginOption {
   }
 })
 export class AppEditComponent {
-  selectedLoginOption: LoginOption = LoginOption.LOGIN;
-  LoginOption = LoginOption;
   userMail: string;
   userPassword: string;
   entryId: string;
   constructor(public service: AppAccountService, private _ref: ChangeDetectorRef) {
     
    }
-  goToRestorePasswordMenu() {
-    this.selectedLoginOption = LoginOption.RESTORE;
-  }
 
-  goTocreateAccountMenu() {
-    this.selectedLoginOption = LoginOption.CREATE;
-  }
-
-  goToLoginMenu() {
-    this.selectedLoginOption = LoginOption.LOGIN;
-  }
-
-  update() {
-    this._ref.markForCheck()
-  }
 }

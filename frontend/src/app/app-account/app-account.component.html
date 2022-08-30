@@ -1,0 +1,13 @@
+<div class="headerDiv"></div>
+<ng-container *ngIf="!service.logged">
+    <div [fxLayout]="'row'" fxLayoutGap="10px">
+        <a class="clickable-text" (click)="goToRestorePasswordMenu()">{{ "account.restorePassword" | language }}</a>
+        <a class="clickable-text" (click)="goTocreateAccountMenu()">{{ "account.createAccount" | language }}</a>
+        <a class="clickable-text" (click)="goToLoginMenu()">{{ "account.login" | language }}</a>
+    </div>
+    <ng-container [ngSwitch]="selectedLoginOption">
+        <app-login (onLogin)="update()" *ngSwitchCase="LoginOption.LOGIN">{{ "account.login" | language }}</app-login>
+        <app-restore-password *ngSwitchCase="LoginOption.RESTORE">{{ "account.restore" | language }}</app-restore-password>
+        <app-create-account *ngSwitchCase="LoginOption.CREATE">{{ "account.create" | language }}</app-create-account>
+    </ng-container>
+</ng-container>

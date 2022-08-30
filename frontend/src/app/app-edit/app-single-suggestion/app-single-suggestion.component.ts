@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, filter, map, Subject } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
 import { NotificationService } from 'src/utils/notification.service';
-import { AppAccountService } from '../app-account.service';
+import { AppAccountService } from '../../app-account/app-account.service';
 import { ISuggestionEnhanced } from '../app-suggestions-list/app-suggestions-list.component';
 import { AppSuggestionsListService } from '../app-suggestions-list/app-suggestions-list.service';
 

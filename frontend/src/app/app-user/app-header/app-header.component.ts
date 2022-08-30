@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
-import { AppAccountService } from 'src/app/app-edit/app-account.service';
+import { AppAccountService } from 'src/app/app-account/app-account.service';
 import { LanguageService } from 'src/language/language.service';
 
 export interface LinkOption  {
@@ -32,8 +32,8 @@ export class AppHeaderComponent {
     },
     {
       url: "edit",
-      nameTag: "login",
-      slug: "header.login"
+      nameTag: "edit",
+      slug: "header.edit"
     }
   ];
 

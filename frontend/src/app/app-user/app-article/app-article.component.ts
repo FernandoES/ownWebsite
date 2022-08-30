@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router,  } from '@angular/router';
 import { catchError, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
-import { AppAccountService } from 'src/app/app-edit/app-account.service';
+import { AppAccountService } from 'src/app/app-account/app-account.service';
 import { NotificationService } from 'src/utils/notification.service';
 import { IBlogEntry } from '../app-user.service';
 import { AppArticleService } from './app-article.service';

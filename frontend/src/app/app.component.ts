@@ -1,13 +1,17 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/language/language.service';
-import { AppAccountService } from './app-edit/app-account.service';
+import { AppAccountService } from './app-account/app-account.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'app-root'
+  }
 })
 export class AppComponent {
   subscriptions: Subscription[];

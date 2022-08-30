@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
-import { AppAccountService } from '../app-account.service';
+import { AppAccountService } from '../../app-account/app-account.service';
 
 @Injectable()
 export class AppCreateBlogService {
