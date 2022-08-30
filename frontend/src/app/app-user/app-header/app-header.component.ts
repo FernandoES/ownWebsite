@@ -5,7 +5,8 @@ import { LanguageService } from 'src/language/language.service';
 export interface LinkOption  {
   url: string,
   nameTag: string,
-  slug: string
+  slug: string,
+  show: () => boolean
 }
 
 @Component({
@@ -23,17 +24,20 @@ export class AppHeaderComponent {
     {
       url: "user/blog",
       nameTag: "blog",
-      slug: "header.blog"
+      slug: "header.blog",
+      show: () => true
     },
     {
       url: "user/suggestion",
       nameTag: "suggestion",
-      slug: "header.suggestions"
+      slug: "header.suggestions",
+      show: () => true
     },
     {
       url: "edit",
       nameTag: "edit",
-      slug: "header.edit"
+      slug: "header.edit",
+      show: () => this.accountService.logged
     }
   ];
 
