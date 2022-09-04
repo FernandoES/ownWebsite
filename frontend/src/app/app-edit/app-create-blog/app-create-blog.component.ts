@@ -21,7 +21,9 @@ export class AppCreateBlogComponent {
 
   existingArticleInformation$: Observable<IBlogEntry | null>;
   blog: IBlogEntry;
+  fileReader: FileReader;
   image: File;
+  imagePreview: string;
   entryId: string;
   constructor(
     private _service: AppCreateBlogService, 
@@ -30,6 +32,13 @@ export class AppCreateBlogComponent {
     private _ref: ChangeDetectorRef) {
     this.resetValues();
     this.assignExistingInformation();
+    this.fileReader = new FileReader();
+    this.fileReader.onload = e =>{ 
+      console.log("e", e);
+      this.imagePreview = e.target?.result as string;
+      this._ref.markForCheck();
+      console.log("this.imagePreview ", this.imagePreview );
+    };
    }
   resetForm(avoidInform: boolean = false) {
     this.resetValues();
@@ -50,6 +59,7 @@ export class AppCreateBlogComponent {
     const target = event.target as HTMLInputElement;
     if (target.files && target.files.length > 0){
       this.image = target.files[0];
+      this.fileReader.readAsDataURL(this.image);
     }
   }
 

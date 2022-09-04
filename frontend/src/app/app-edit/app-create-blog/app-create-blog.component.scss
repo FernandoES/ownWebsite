@@ -1,12 +1,13 @@
 .app-create-blog {
-    width: 80rem;
-    * {
-        width: 80rem;
-    }
     >div {
+        width: 80rem;
         margin-left: auto;
         margin-right: auto;
         form {
+            width: 80rem;
+            * {
+                width: 80rem;
+            }
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,6 +20,17 @@
             width: fit-content;
             margin-top: 5rem;
             margin-bottom: 1rem;
+        }
+        input, textarea {
+            width: 80rem;
+        }
+    }
+    .imageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        img {
+            align-self: center;
         }
     }
 }

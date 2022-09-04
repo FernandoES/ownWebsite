@@ -1,13 +1,13 @@
 <div>
   <h1>{{ "editor.header" | language }}</h1>
   <h2>{{ (entryId ? "editor.editExplanation" : "editor.createExplanation") | language }}</h2>
-  <div>
+  <div class="imageContainer" [fxLayout]="'column'">
+    <img *ngIf="imagePreview" class="image" alt="img" [src]="imagePreview" width="333">
     <button class="btn waves-effect waves-light imageButton blue" type="button" (click)="imageInput.click()">{{ (entryId ? "editor.substituteImage" : "editor.selectImage") | language }}</button>
     <input hidden #imageInput type="file" (change)="setFile($event)">
-    <span class="file-name">{{ image?.name ?? blog.imageName }}</span>
   </div>
   <form #createBlogForm="ngForm" (ngSubmit)="saveBlog()">
-    <div  [fxLayout]="'row'">
+    <div [fxLayout]="'row'">
           <mat-form-field [fxLayout]="'row'" appearance="fill">
               <input #titleInput="ngModel" matInput="matInput" [(ngModel)]="blog.title" name="titleInput" placeholder="{{ 'common.title' | language }}" required/>
               <mat-error><span [hidden]="!(titleInput.errors && titleInput.errors['required'])">{{ "common.requiredField" | language }}</span></mat-error>

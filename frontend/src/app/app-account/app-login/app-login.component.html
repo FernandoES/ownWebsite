@@ -10,9 +10,9 @@
         <label for="password" [fxFlex]="'0 0 25%'">{{ "common.password" | language }}:</label>
         <input  [fxFlex]="'0 0 50%'" type="password" id="password" #passwordControl="ngModel" placeholder="{{ 'common.password' | language }}" required name="password" [(ngModel)]="password"/>
     </div>
-    <div class="buttons" *ngIf="!loginForm.pristine">
-    <button class="btn waves-effect waves-light blue" (click)="resetForm()" type="button">{{ "common.cancel" | language }}</button>
-    <button class="btn waves-effect waves-light blue" color="primary">{{ "common.send" | language }}</button>
+    <div name="buttons" class="buttons" *ngIf="!loginForm.pristine">
+        <button class="btn waves-effect waves-light blue" (click)="resetForm()" type="button">{{ "common.cancel" | language }}</button>
+        <button class="btn waves-effect waves-light blue" color="primary">{{ "common.send" | language }}</button>
     </div>
 </mat-card>
 </form>
