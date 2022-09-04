@@ -12,5 +12,11 @@
     textarea {
         height: 10rem;
     }
+    .sendSuggestionButtons {
+        width: 35rem;
+        button {
+            transition: box-shadow .3s;
+        }
+    }
 }
 }
