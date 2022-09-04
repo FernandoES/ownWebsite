@@ -1,7 +1,8 @@
 .app-header {
-    //position: fixed;
+    position: fixed;
     width: 100%;
     top: 0px;
+    z-index: 1;
     img {
         max-height: 100%;
         width: auto;
