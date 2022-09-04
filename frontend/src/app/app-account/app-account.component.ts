@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { AppAccountService } from './app-account.service';
 
 enum LoginOption {
@@ -11,6 +11,7 @@ enum LoginOption {
     templateUrl: 'app-account.component.html',
     styleUrls: ['app-account.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
     host: {
       class: 'app-account'
     }

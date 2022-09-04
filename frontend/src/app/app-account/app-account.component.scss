@@ -1,5 +1,6 @@
+@import '../../utils/utils.scss';
 .app-account {
-    >.headerDiv {
-        height: 64px;
-    }
+    height: calc(100vh - $header-height);
+    position: relative;
+    top: $header-height;
 }
