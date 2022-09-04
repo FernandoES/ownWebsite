@@ -41,8 +41,8 @@ export class AppSuggestionComponent{
 
   private _resetSuggestion() {
     this.suggestion = {
-      userName: "",
-      userMail: "",
+      authorName: "",
+      authorMail: "",
       body: "",
     }
   }

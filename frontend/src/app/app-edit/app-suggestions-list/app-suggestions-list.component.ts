@@ -2,9 +2,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 import { AppSuggestionsListService } from './app-suggestions-list.service';
 import { map } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
-import { ISuggestion } from 'src/app/app-user/app-suggestion/app-suggestion.service';
 
-export interface ISuggestionEnhanced extends IBlogEntry, ISuggestion {}
 @Component({
   selector: 'app-suggestions-list',
   templateUrl: './app-suggestions-list.component.html',
@@ -18,12 +16,12 @@ export interface ISuggestionEnhanced extends IBlogEntry, ISuggestion {}
 export class AppSuggestionsListComponent {
 
   suggestionsList$ = this._service.fetchSuggestionsList().pipe(
-    map(suggestions => suggestions.map(suggestion => ({...suggestion, title: suggestion.userName, Mail: suggestion.userMail}) as ISuggestionEnhanced)),
+    map(suggestions => suggestions.map(suggestion => ({...suggestion, title: suggestion.authorName, Mail: suggestion.authorMail}) as IBlogEntry)),
   );
   constructor(private _service: AppSuggestionsListService) {
   }
 
-  goToSuggestion(suggestion: ISuggestionEnhanced){
+  goToSuggestion(suggestion: IBlogEntry){
     this._service.selectedSuggestion.next(suggestion);
   }
 }

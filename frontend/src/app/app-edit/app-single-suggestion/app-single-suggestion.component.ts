@@ -3,7 +3,6 @@ import { Observable, filter, map, Subject } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
 import { NotificationService } from 'src/utils/notification.service';
 import { AppAccountService } from '../../app-account/app-account.service';
-import { ISuggestionEnhanced } from '../app-suggestions-list/app-suggestions-list.component';
 import { AppSuggestionsListService } from '../app-suggestions-list/app-suggestions-list.service';
 
 @Component({
@@ -13,13 +12,13 @@ import { AppSuggestionsListService } from '../app-suggestions-list/app-suggestio
 
 export class AppSingleSuggestion implements OnInit {
     error$ = new Subject<string>();
-    public singleSuggestion$: Observable<ISuggestionEnhanced>;
+    public singleSuggestion$: Observable<IBlogEntry>;
     constructor(public service: AppSuggestionsListService, public accountService: AppAccountService, private _notificationService: NotificationService) { }
 
     ngOnInit() {
         this.singleSuggestion$ = this.service.selectedSuggestion.asObservable().pipe(
             filter(suggestion => suggestion != null),
-            map(suggestion => suggestion as ISuggestionEnhanced)
+            map(suggestion => suggestion as IBlogEntry)
         );
     }
 

@@ -40,6 +40,7 @@ export class AppCreateBlogComponent {
   }
   resetValues(){
     this.blog = {
+      ...this.blog,
       title: "",
       body: "",
     }

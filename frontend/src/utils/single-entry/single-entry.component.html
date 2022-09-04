@@ -7,8 +7,8 @@
         </div>
         <img *ngIf="entry.imagePath" class="image" alt="img" [src]="entry.imagePath" width="500">
             <div [fxLayout]="'row'" name="author">
-                <p class="author">By {{ entry.authorName }}</p>
-                <p class="date">&nbsp;at {{ entry.date | date }}</p>
+                <p class="author">{{ 'common.by' | language }} {{ entry.authorName }}</p>
+                <p class="date">&nbsp;{{ 'common.at' | language }} {{ entry.date | date }}</p>
             </div>
             <showdown [value]="entry.body"></showdown>
     </div>

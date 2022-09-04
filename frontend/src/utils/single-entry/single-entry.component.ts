@@ -1,4 +1,4 @@
-import { Component, Input, Output, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, ViewEncapsulation } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
 
@@ -6,6 +6,7 @@ import { IBlogEntry } from 'src/app/app-user/app-user.service';
     selector: 'single-entry',
     templateUrl: 'single-entry.component.html',
     styleUrls: ['single-entry.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     host: {
         class: "single-entry"
