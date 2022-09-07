@@ -4,22 +4,32 @@ const bcrypt = require('bcrypt');
 
 const userCtrl = {};
 userCtrl.createAccount = async (req,res) => {
-    if (!req.body.password || !req.body.user) {
+    if (!req.body.password || !req.body.userName || !req.body.userMail) {
         res.status(400).json({'status': 'Password or user not delivered'});
     }
     else {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const user = new User({userMail: req.body.userMail, userName: req.body.userName, password: hashedPassword});
-        try {
-            await user.save();
-            res.json({
-                'status': 'Account created'
-            })
+        const numberOfExistingAccounts = await User.user.count();
+        if (numberOfExistingAccounts) {
+            saveUser(req.body.userMail, req.body.userName, hashedPassword, User.accountCreationPetitions, 'response.login.account.petitioned', res);
         }
-        catch (e){
-            res.status(400).json(utils.showSchemaError(User));
+        else {
+            saveUser(req.body.userMail, req.body.userName, hashedPassword, User.user, 'response.login.account.created', res);
         }
+    }
 }
+
+saveUser = async (userMail, userName, hashedNewPassword, db, successStatus, res) => {
+    const user = new db({userMail: userMail, userName: userName, password: hashedNewPassword});
+            try {
+                await user.save();
+                res.json({
+                    'status': successStatus
+                })
+            }
+            catch (e){
+                res.status(400).json(utils.showSchemaError(db));
+            }
 }
 
 userCtrl.restorePassword = async (req,res) => {
@@ -34,7 +44,7 @@ userCtrl.restorePassword = async (req,res) => {
         try {
             if (await bcrypt.compare(req.body.oldPassword, user.password)) {
                 const hashedNewPassword = await bcrypt.hash(req.body.newPassword, 10);
-                await User.findByIdAndUpdate(user._id, { password: hashedNewPassword });
+                await User.user.findByIdAndUpdate(user._id, { password: hashedNewPassword });
                 res.json({'status': 'User password changed properly'});
                 return;
             }
@@ -62,19 +72,55 @@ userCtrl.login = async (req, res) => {
     res.json({logged: false});
   }
 
-    userCtrl.getEmployeeByUserMail = async (userMail) => {
-        return await User.findOne({userMail: userMail});
+userCtrl.getEmployeeByUserMail = async (userMail) => {
+    return await User.user.findOne({userMail: userMail});
+}
+
+userCtrl.getEmployeeById = async (id) => {
+    return await User.user.findById(id);
+}
+
+userCtrl.logout = async (req,res, next) => {
+    req.logout((e) => {
+        if (e) {return next(e);}
+    })
+    res.json({'status': 'account.loggedOut'})
+}
+
+userCtrl.getAccountPetitions = async(req, res) => {
+    const petitions = await User.accountCreationPetitions.find();
+    res.json({'accountPetitions': petitions.map(p => ({userName: p.userName, userMail: p.userMail, _id: p._id}))});
+}
+
+userCtrl.rejectAccountPetition = async(req, res) => {
+        if(!req.body.petitionId) {
+            res.status(400).json({'error': 'response.petition.error.noId'});
+            return;
+        }
+        User.accountCreationPetitions.findByIdAndDelete(req.body.petitionId, function (err, petition) {
+            if(err) {
+                res.status(400).json({'error': err});
+                return;
+            }
+            res.json({'status': 'response.petition.success.deleted' })
+        });
+}
+
+userCtrl.acceptAccountPetition = async(req, res) => {
+    try {
+        if(!req.body.petitionId) {
+            res.status(400).json({'error': 'response.petition.error.noId'});
+            return;
+        }
+        const petition = await User.accountCreationPetitions.findById(req.body.petitionId);
+        saveUser(petition.userMail, petition.userName, petition.password, User.user, 'response.login.account.created', res);
+        User.accountCreationPetitions.findByIdAndDelete(petition._id);
+        return;
+    }
+    catch (e) {
+        res.status(400).json({'error': e});
     }
 
-    userCtrl.getEmployeeById = async (id) => {
-        return await User.findById(id);
-    }
-
-    userCtrl.logout = async (req,res, next) => {
-        req.logout((e) => {
-            if (e) {return next(e);}
-        })
-        res.json({'status': 'account.loggedOut'})
-    }
+}
 
 module.exports = userCtrl;

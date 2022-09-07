@@ -6,6 +6,10 @@ enum LoginOption {
     RESTORE,
     CREATE
   }
+enum LogoutOption {
+  LOGOUT,
+  PETITIONS
+}
 @Component({
     selector: 'app-account',
     templateUrl: 'app-account.component.html',
@@ -20,7 +24,9 @@ enum LoginOption {
 
 export class AppAccountComponent {
     selectedLoginOption: LoginOption = LoginOption.LOGIN;
+    selectedLogoutOption: LogoutOption = LogoutOption.LOGOUT;
     LoginOption = LoginOption;
+    LogoutOption = LogoutOption;
     constructor(public service: AppAccountService, private _ref: ChangeDetectorRef) {
       this.service.loggedIn$.subscribe(() => this._ref.markForCheck());
      }
@@ -34,6 +40,14 @@ export class AppAccountComponent {
   
     goToLoginMenu() {
       this.selectedLoginOption = LoginOption.LOGIN;
+    }
+
+    goToLogout() {
+      this.selectedLogoutOption = LogoutOption.LOGOUT;
+    }
+
+    goToAccountpetitions() {
+      this.selectedLogoutOption = LogoutOption.PETITIONS;
     }
 
     update() {

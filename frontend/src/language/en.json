@@ -16,7 +16,9 @@
         "loading": "Loading",
         "loggedIn": "Logged in",
         "notLoggedIn": "Not logged in",
-        "delete": "Delete"
+        "delete": "Delete",
+        "accept": "Accept",
+        "reject": "Reject"
     },
     "header": {
         "blog": "Blog",
@@ -34,6 +36,9 @@
         "sent": "Suggestion sent",
         "deleted": "Suggestion deleted"
     },
+    "petitions": {
+        "title": "Account petitions"
+    },
     "account": {
         "loginHeader": "Login to edit and create new entries",
         "restorePassword": "Restore password",
@@ -46,7 +51,8 @@
         "oldPassword": "Old password",
         "newPassword": "New password",
         "created": "Account created",
-        "restored": "Password restored"
+        "restored": "Password restored",
+        "accountPetitions": "Account petitions"
     },
     "editor": {
         "header": "Text editor",
@@ -80,10 +86,22 @@
             },
             "error": {
 
+            },
+            "account": {
+                "created": "Account created",
+                "petitioned": "Your account creation should be approved by an existing user"
             }
         },
         "suggestions": {
             "saved": "Suggestion saved"
+        },
+        "petition": {
+            "error": {
+                "noId": "No petition with this Id"
+            },
+            "success": {
+                "deleted": "Petition deleted"
+            }
         },
         "common": {
             "required": "The following values are required"

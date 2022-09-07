@@ -16,7 +16,9 @@
         "loading": "Cargando",
         "loggedIn": "Registrado",
         "notLoggedIn": "No registrado",
-        "delete": "Borrar"
+        "delete": "Borrar",
+        "accept": "Aceptar",
+        "reject": "Rechazar"
     },
     "header": {
         "blog": "Blog",
@@ -33,6 +35,9 @@
         "explanation": "Siéntase libre de mostar su opinión",
         "sent": "Sugerencias enviadas"
     },
+    "petitions": {
+        "title": "Peiticiones de cuenta"
+    },
     "account": {
         "loginHeader": "Entre para editar y crear nuevas entradas del blog",
         "restorePassword": "Restaurar contraseña",
@@ -45,7 +50,8 @@
         "oldPassword": "Contraseña previa",
         "newPassword": "Contraseña nueva",
         "created": "Cuenta creada",
-        "restored": "Contraseña restaurada"
+        "restored": "Contraseña restaurada",
+        "accountPetitions": "Peticiones de cuenta"
     },
     "editor": {
         "header": "Editor de texto",
@@ -80,10 +86,22 @@
             },
             "error": {
 
+            },
+            "account": {
+                "created": "Cuenta creada",
+                "petitioned": "Su petición ha de ser aprovada por un usuario actual"
             }
         },
         "suggestions": {
             "saved": "Sugerencia guardada"
+        },
+        "petition": {
+            "error": {
+                "noId": "Ninguna petición tiene esta Id"
+            },
+            "success": {
+                "deleted": "Petición eliminada"
+            }
         },
         "common": {
             "required": "Los valores siguientes son obligatorios"

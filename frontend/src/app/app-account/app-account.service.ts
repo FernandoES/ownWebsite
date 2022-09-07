@@ -1,11 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Subject, tap } from 'rxjs';
+import { map, Observable, Subject, tap } from 'rxjs';
 
 export interface Logged {
     logged: true;
     userMail?: string;
     userName?: string;
+}
+
+export interface Petition {
+    userName: string;
+    userMail: string;
+    _id: number;
 }
 @Injectable()
 export class AppAccountService {
@@ -30,8 +36,8 @@ export class AppAccountService {
         {userMail: userMail, oldPassword: oldPassword, newPassword: newPassword});
     }
 
-    createAccount(userMail: string, userName: string, password: string){
-        return this._http.post(`${this.apiBaseUrl}/createAccount`, {userMail, userName,password });
+    createAccount(userMail: string, userName: string, password: string): Observable<{status: string}>{
+        return this._http.post<{status: string}>(`${this.apiBaseUrl}/createAccount`, {userMail, userName,password });
     }
 
     checkIfLogged() {
@@ -52,5 +58,17 @@ export class AppAccountService {
             this.userName = '';
             this.loggedIn$.next(false);
         }));
+    }
+
+    fetchAccountPetitions() {
+        return this._http.get<{accountPetitions: Petition[]}>(`${this.apiBaseUrl}/accountPetitions`);
+    }
+
+    acceptPetition(petitionId: number) {
+        return this._http.post<{status: string}>(`${this.apiBaseUrl}/accountPetitions/accept`, {petitionId});
+    }
+
+    rejectPetition(petitionId: number) {
+        return this._http.post<{status: string}>(`${this.apiBaseUrl}/accountPetitions/reject`,  {petitionId});
     }
 }

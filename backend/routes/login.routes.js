@@ -27,6 +27,9 @@ router.post('/login', auth() , userCtrl.login);
 router.post('/createAccount', userCtrl.createAccount);
 router.post('/restorePassword', userCtrl.restorePassword);
 router.get('/isLogged', userCtrl.checkIfLogged);
+router.get('/accountPetitions', utils.checkAuthenticated, userCtrl.getAccountPetitions);
+router.post('/accountPetitions/reject', utils.checkAuthenticated, userCtrl.rejectAccountPetition);
+router.post('/accountPetitions/accept', utils.checkAuthenticated, userCtrl.acceptAccountPetition);
 router.delete('/logout',utils.checkAuthenticated, userCtrl.logout);
 
 module.exports = router;

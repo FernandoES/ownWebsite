@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NotificationService } from 'src/utils/notification.service';
 import { AppAccountService } from '../app-account.service';
@@ -18,7 +18,7 @@ export class AppCreateAccountComponent {
   userMail: string;
   userName: string;
   password: string;
-  constructor(private _service: AppAccountService, private _notification: NotificationService) { 
+  constructor(private _service: AppAccountService, private _notification: NotificationService, private _ref: ChangeDetectorRef) { 
     this._resetValues();
   }
 
@@ -26,8 +26,8 @@ export class AppCreateAccountComponent {
     if(this.createForm.invalid) {
       return;
     }
-    this._service.createAccount(this.userMail, this.userName, this.password).subscribe({next: _ => {
-      this._notification.success("account.created");
+    this._service.createAccount(this.userMail, this.userName, this.password).subscribe({next: response => {
+      this._notification.success(response.status);
       this.resetForm(true);
     }});
   }
@@ -38,10 +38,12 @@ export class AppCreateAccountComponent {
     if(!avoidInform) { 
       this._notification.success("common.reset");
     }
+    this._ref.markForCheck();
   }
 
   private _resetValues() {
     this.userMail = "";
+    this.userName = "";
     this.password = "";
   }
 }

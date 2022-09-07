@@ -34,10 +34,8 @@ export class AppCreateBlogComponent {
     this.assignExistingInformation();
     this.fileReader = new FileReader();
     this.fileReader.onload = e =>{ 
-      console.log("e", e);
       this.imagePreview = e.target?.result as string;
       this._ref.markForCheck();
-      console.log("this.imagePreview ", this.imagePreview );
     };
    }
   resetForm(avoidInform: boolean = false) {
