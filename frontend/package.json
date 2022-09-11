@@ -23,7 +23,6 @@
     "angular-i18next": "^11.0.0-0",
     "i18next": "^21.8.14",
     "ngx-markdown": "^13.1.0",
-    "ngx-showdown": "^6.0.0",
     "ngx-toastr": "^11.3.3",
     "prismjs": "^1.27.0",
     "rxjs": "~7.4.0",

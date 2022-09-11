@@ -18,7 +18,6 @@ import { AppEditorAreaComponent } from './app-editor-area/app-editor-area.compon
 import { AppSuggestionsListComponent } from './app-suggestions-list/app-suggestions-list.component';
 import { AppSuggestionsListService } from './app-suggestions-list/app-suggestions-list.service';
 import { OwnUtilsModule } from 'src/utils/own-utils.module';
-import { ShowdownModule } from 'ngx-showdown';
 import { AppSingleSuggestion } from './app-single-suggestion/app-single-suggestion.component';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -44,7 +43,6 @@ import { MarkdownModule } from 'ngx-markdown';
     MatCheckboxModule,
     LanguageModule,
     OwnUtilsModule,
-    ShowdownModule,
     MarkdownModule.forChild()
   ],
   providers: [

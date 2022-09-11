@@ -5,7 +5,6 @@ import { AppArticleRoutingModule } from './app-article-routing.module';
 import { AppArticleComponent } from './app-article.component';
 import { AppArticleService } from './app-article.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ShowdownModule } from 'ngx-showdown';
 import { LanguageModule } from 'src/language/language.module';
 import { OwnUtilsModule } from 'src/utils/own-utils.module';
 import { MarkdownModule } from 'ngx-markdown';
@@ -19,7 +18,6 @@ import { MarkdownModule } from 'ngx-markdown';
     CommonModule,
     AppArticleRoutingModule,
     FlexLayoutModule,
-    ShowdownModule,
     MarkdownModule.forChild(),
     LanguageModule,
     OwnUtilsModule
