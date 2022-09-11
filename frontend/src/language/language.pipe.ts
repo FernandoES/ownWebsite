@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { LanguageService } from './language.service';
 
 @Pipe({
-    name: 'language',
+    name: 'ownLanguage',
     pure: false
 })
 

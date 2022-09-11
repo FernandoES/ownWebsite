@@ -1,6 +1,6 @@
 <div [fxLayout]="'row'" fxLayoutGap="20px">
-    <a class="clickable-text" (click)="goToCreateBlog()">{{ "editor.createBlog" | language }}</a>
-    <a class="clickable-text" (click)="goToSuggestions()">{{ "editor.suggestions" | language }}</a>
+    <a class="clickable-text" (click)="goToCreateBlog()">{{ "editor.createBlog" | ownLanguage }}</a>
+    <a class="clickable-text" (click)="goToSuggestions()">{{ "editor.suggestions" | ownLanguage }}</a>
 </div>
 <ng-container [ngSwitch]="selectedEditOption">
     <app-create-blog *ngSwitchCase="EditOption.CREATE"></app-create-blog>
