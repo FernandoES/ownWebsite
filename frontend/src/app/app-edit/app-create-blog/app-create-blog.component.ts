@@ -69,7 +69,10 @@ export class AppCreateBlogComponent {
       });
     }
     else {
-      this._service.saveBlog(this.blog, this.image).subscribe({next: () => this._notification.success("editor.saved")});
+      this._service.saveBlog(this.blog, this.image).subscribe({
+        next: () => this._notification.success("editor.saved"),
+        error: (response: any) => this._notification.error(response.error.message)
+      });
     }
   }
   assignExistingInformation() {

@@ -10,12 +10,11 @@ export class AppCreateBlogService {
     apiBaseUrl = '/api/articles';
 
     saveBlog(blog: IBlogEntry, image?: File){
-        const userMail = this._accountService.userMail;
         if (image) {
             return this.uploadImage(image)
-            .pipe(switchMap(response => this.saveArticle({...blog, author: userMail, imageName: response.imageName})));
+            .pipe(switchMap(response => this.saveArticle({...blog, authorName: this._accountService.userName, authorMail: this._accountService.userMail, imageName: response.imageName})));
         }
-        return this.saveArticle({...blog, author: userMail})
+        return this.saveArticle({...blog, authorName: this._accountService.userName, authorMail: this._accountService.userMail})
     }
     
     editBlog(blog: IBlogEntry, entryId: string, image?: File) {
