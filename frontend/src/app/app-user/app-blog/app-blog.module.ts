@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { OwnUtilsModule } from 'src/utils/own-utils.module';
 import { MatIconModule } from '@angular/material/icon';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     AppBlogRoutingModule,
     ShowdownModule,
+    MarkdownModule.forChild(),
     MatCardModule,
     FlexLayoutModule,
     LanguageModule,

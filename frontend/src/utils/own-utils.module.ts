@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MarkdownModule } from 'ngx-markdown';
 import { ShowdownModule } from 'ngx-showdown';
 import { AppBlogRoutingModule } from 'src/app/app-user/app-blog/app-blog-routing.module';
 import { LanguageModule } from 'src/language/language.module';
@@ -15,6 +16,7 @@ import { SingleEntryComponent } from './single-entry/single-entry.component';
         CommonModule,
         AppBlogRoutingModule,
         ShowdownModule,
+        MarkdownModule.forChild(),
         MatCardModule,
         FlexLayoutModule,
         LanguageModule,

@@ -10,7 +10,7 @@
                 <p class="author">{{ 'common.by' | ownLanguage }} {{ entry.authorName }}</p>
                 <p class="date">&nbsp;{{ 'common.at' | ownLanguage }} {{ entry.date | date }}</p>
             </div>
-            <showdown [value]="entry.body"></showdown>
+            <markdown [data]="entry.body"></markdown>
     </div>
 </ng-container>
 <ng-template #loadingOrError>

@@ -3,6 +3,6 @@
         <img *ngIf="item.imagePath" class="image" alt="img" [src]="item.imagePath" width="100%" height="100px">
     </ng-template>
     <ng-template #cardContent="" let-item="">
-        <showdown [value]="item.body" select="cardContent"></showdown>
+        <markdown [data]="item.body" select="cardContent"></markdown>
     </ng-template>
 </app-cards-presentation>

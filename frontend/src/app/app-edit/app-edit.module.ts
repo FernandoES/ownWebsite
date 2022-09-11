@@ -20,6 +20,7 @@ import { AppSuggestionsListService } from './app-suggestions-list/app-suggestion
 import { OwnUtilsModule } from 'src/utils/own-utils.module';
 import { ShowdownModule } from 'ngx-showdown';
 import { AppSingleSuggestion } from './app-single-suggestion/app-single-suggestion.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { AppSingleSuggestion } from './app-single-suggestion/app-single-suggesti
     LanguageModule,
     OwnUtilsModule,
     ShowdownModule,
+    MarkdownModule.forChild()
   ],
   providers: [
     AppCreateBlogService,

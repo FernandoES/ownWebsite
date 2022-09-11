@@ -12,6 +12,7 @@ import { NotificationService } from 'src/utils/notification.service';
 import { I18NextModule, I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { LanguageModule } from 'src/language/language.module';
 import { AppAccountService } from './app-account/app-account.service';
+import { MarkdownModule } from 'ngx-markdown';
 
 export function appInit(i18next: ITranslationService) {
   return () => i18next.init({
@@ -55,6 +56,7 @@ export const I18N_PROVIDERS = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     I18NextModule.forRoot(),
+    MarkdownModule.forRoot(),
     HttpClientModule,
     LanguageModule,
     
