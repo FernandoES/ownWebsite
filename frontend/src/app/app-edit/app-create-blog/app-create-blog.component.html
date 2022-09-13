@@ -13,10 +13,10 @@
               <mat-error><span [hidden]="!(titleInput.errors && titleInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
             </mat-form-field>
       </div>
-          <textarea name="textBody" [(ngModel)]="blog.body" #textBodyInput="ngModel"></textarea>
-          <mat-error><span [hidden]="!(textBodyInput.errors && textBodyInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
-          <div class="buttons" *ngIf="!createBlogForm.pristine">
-            <button class="btn waves-effect waves-light blue" (click)="resetForm()" type="button">{{ "common.cancel" | ownLanguage }}</button>
+      <textarea name="textBody" [(ngModel)]="blog.body" #textBodyInput="ngModel"></textarea>
+      <mat-error><span [hidden]="!(textBodyInput.errors && textBodyInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
+      <div class="buttons" *ngIf="!createBlogForm.pristine">
+        <button class="btn waves-effect waves-light blue" (click)="resetForm()" type="button">{{ "common.cancel" | ownLanguage }}</button>
       <button class="btn waves-effect waves-light blue">{{ "common.save" | ownLanguage }}</button>
     </div>
   </form>

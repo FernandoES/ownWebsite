@@ -4,12 +4,12 @@
     <div name="inputFields">
         <mat-form-field appearance="fill">
             <input #userNameInput="ngModel" matInput="matInput" [(ngModel)]="suggestion.authorName" name="authorName" placeholder="{{ 'common.name' | ownLanguage }}" required/>
-            <mat-error><span [hidden]="!(userNameInput.errors && userNameInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
+            <mat-error><span [hidden]="suggestionForm.pristine || !(userNameInput.errors && userNameInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <input #emailInput="ngModel" matInput="matInput" email [(ngModel)]="suggestion.authorMail" name="authorMail" placeholder="{{ 'common.eMail' | ownLanguage }}"/>
-            <mat-error><span [hidden]="!(emailInput.errors && emailInput.errors['email'])">{{ "common.requiredEmail" | ownLanguage }}</span></mat-error>
-            <mat-error><span [hidden]="!(emailInput.errors && emailInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
+            <mat-error><span [hidden]="suggestionForm.pristine || !(emailInput.errors && emailInput.errors['email'])">{{ "common.requiredEmail" | ownLanguage }}</span></mat-error>
+            <mat-error><span [hidden]="suggestionForm.pristine || !(emailInput.errors && emailInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
         </mat-form-field>
         <textarea name="body" [(ngModel)]="suggestion.body" #suggestionsInput="ngModel"></textarea>
         <mat-error><span [hidden]="!(suggestionsInput.errors && suggestionsInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>

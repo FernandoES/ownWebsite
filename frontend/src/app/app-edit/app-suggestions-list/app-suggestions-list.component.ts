@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 import { AppSuggestionsListService } from './app-suggestions-list.service';
 import { map } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
+import { compareArticlesByDate } from 'src/utils/functions/compareArticlesByDate';
 
 @Component({
   selector: 'app-suggestions-list',
@@ -16,7 +17,8 @@ import { IBlogEntry } from 'src/app/app-user/app-user.service';
 export class AppSuggestionsListComponent {
 
   suggestionsList$ = this._service.fetchSuggestionsList().pipe(
-    map(suggestions => suggestions.map(suggestion => ({...suggestion, title: suggestion.authorName, Mail: suggestion.authorMail}) as IBlogEntry)),
+    map(suggestions => suggestions.sort(compareArticlesByDate)
+      .map(suggestion => ({...suggestion, title: suggestion.authorName, Mail: suggestion.authorMail}) as IBlogEntry)),
   );
   constructor(private _service: AppSuggestionsListService) {
   }

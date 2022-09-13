@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { IBlogEntry, UserService } from '../app-user.service';
 @Component({
@@ -13,6 +14,7 @@ import { IBlogEntry, UserService } from '../app-user.service';
   }
 })
 export class AppSideMenuComponent {
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
   articles: IBlogEntry[] = [] as IBlogEntry[];
   searchMatches: IBlogEntry[] = [] as IBlogEntry[];
   get articlePath() {
@@ -30,6 +32,7 @@ export class AppSideMenuComponent {
     const selectedId = this.articles[this.articles.length - 1]?._id;
     if (selectedId){
       this.goToArticle(selectedId);
+      this.trigger.closeMenu();
     }
   }
   
@@ -37,7 +40,7 @@ export class AppSideMenuComponent {
     $event.stopPropagation();
     const selectedId = this.articles[Math.floor(Math.random() * this.articles.length)]?._id;
     if(selectedId) {
-      this.goToArticle(selectedId);
+      this.goToArticle(selectedId);this.trigger.closeMenu(); 
     }
   }
 
@@ -47,6 +50,7 @@ export class AppSideMenuComponent {
 
   onArticleSelected($event: MatAutocompleteSelectedEvent) {
     this.goToArticle($event.option.value._id);
+    this.trigger.closeMenu(); 
   }
   
   onArticleSearchChange(input: string) {

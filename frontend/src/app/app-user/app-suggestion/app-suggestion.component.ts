@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NotificationService } from 'src/utils/notification.service';
 import { AppSuggestionsService, ISuggestion } from './app-suggestion.service';
@@ -16,7 +16,7 @@ import { AppSuggestionsService, ISuggestion } from './app-suggestion.service';
 export class AppSuggestionComponent{
   @ViewChild('suggestionForm', { static: true }) suggestionForm: NgForm;
   suggestion: ISuggestion;
-  constructor(private _service: AppSuggestionsService, private _notification: NotificationService) {
+  constructor(private _service: AppSuggestionsService, private _notification: NotificationService, private _ref: ChangeDetectorRef) {
     this._resetSuggestion();
    }
 
@@ -34,6 +34,7 @@ export class AppSuggestionComponent{
   resetForm(avoidInform?: boolean){
     this._resetSuggestion();
     this.suggestionForm.form.markAsPristine();
+    this._ref.markForCheck();
     if(!avoidInform) { 
       this._notification.success("common.reset");
     }
