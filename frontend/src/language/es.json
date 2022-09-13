@@ -24,7 +24,8 @@
         "blog": "Blog",
         "suggestions": "Sugerencias",
         "edit": "Editar",
-        "login": "Acceder"
+        "login": "Acceder",
+        "author": "Autor"
     },
     "blogList": {
         "available": "Entradas disponibles",
@@ -67,6 +68,13 @@
         "lastArticle": "Artículo más nuevo",
         "randomArticle": "Artículo aleatorio",
         "searchEntry": "Búsqueda"
+    },
+    "author": {
+        "title": "Un poco sobre mí",
+        "pictureDescription": "Autor del blog y la web",
+        "description1": "",
+        "description2": "",
+        "description3": ""
     },
     "response": {
         "article": {

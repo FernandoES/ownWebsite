@@ -1,0 +1,28 @@
+.app-author {
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+    div {
+        gap: 10rem;
+        display: flex;
+        flex-direction: row;
+        img {
+            margin-top: 4rem;
+            width: 15rem;
+            border-radius: 5%;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    }
+    .contact {
+        position: relative;
+        margin-top: 20%;
+    }
+}

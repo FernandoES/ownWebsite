@@ -24,7 +24,8 @@
         "blog": "Blog",
         "suggestions": "Suggestions",
         "edit": "Edit",
-        "login": "Login"
+        "login": "Login",
+        "author": "Author"
     },
     "blogList": {
         "available": "Available entries",
@@ -68,6 +69,13 @@
         "lastArticle": "Latest article",
         "randomArticle": "Random article",
         "searchEntry": "Search"
+    },
+    "author": {
+        "title": "A little bit about me:",
+        "pictureDescription": "Blog´s and website author",
+        "description1": "I am an engineer and software developer, currently working as front-end developer. I am a spaniard based in Germany.",
+        "description2": "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ",
+        "description3": "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
     },
     "response": {
         "article": {

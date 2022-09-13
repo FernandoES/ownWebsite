@@ -23,6 +23,10 @@ export const appUserRoutes: Routes = [
             {
                 path: 'article/:id',
                 loadChildren: () => import('./app-article/app-article.module').then(m => m.AppArticleModule)
+            },
+            {
+                path: 'author',
+                loadChildren: () => import('./app-author/app-author.module').then(m => m.AppAuthorModule)
             }
         ]
     }
