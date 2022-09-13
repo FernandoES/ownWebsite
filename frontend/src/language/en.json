@@ -25,7 +25,7 @@
         "suggestions": "Suggestions",
         "edit": "Edit",
         "login": "Login",
-        "author": "Author"
+        "about": "About"
     },
     "blogList": {
         "available": "Available entries",
@@ -70,12 +70,17 @@
         "randomArticle": "Random article",
         "searchEntry": "Search"
     },
-    "author": {
-        "title": "A little bit about me:",
-        "pictureDescription": "Blog´s and website author",
-        "description1": "I am an engineer and software developer, currently working as front-end developer. I am a spaniard based in Germany.",
-        "description2": "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ",
-        "description3": "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
+    "about": {
+        "pictureDescription": "Blog's and website author",
+        "descriptionOwn": "I am Fernando, an engineer and software developer, currently working as front-end developer. I am a spaniard based in Germany.",
+        "descriptionEducation": "I studied telecommunication engineer in Spain, since I liked to achieve a deep understanding of technology and apply this knowledge to solve technical problems and develop practical solutions to them. I like the feeling of better understanding the way something complex works and, with this knowledge, be able to improve it with my own ideas. This passion also brought me to study computer science master in Germany, in order to deepen my knowledge about software development.",
+        "descriptionWorking": "I have been working as a programmer full-time for four years and a half, plus one year an a half partial time during my masters studies. Most of the time I was focused on Angular, with some glances at C# and SQL, while my first year and a half experience was focused on C.",
+        "descriptionWebsite1": "This website is the result of two challenges I had since long time. The first one is to develop a website from scratch by myself. The second one is to write a blog about programming, which is not only my profession, but also my passion.",
+        "descriptionWebsite2": "Here I describe the things I discover working and learning about Angular front-end development. Each article is a thought that could help someone to better understand the coding world.",
+        "contact": "Please, feel free to contact me via: ",
+        "educationTitle": "Education",
+        "workTitle": "Work experience",
+        "websiteTitle": "This website"
     },
     "response": {
         "article": {

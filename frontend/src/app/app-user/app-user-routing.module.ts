@@ -25,8 +25,8 @@ export const appUserRoutes: Routes = [
                 loadChildren: () => import('./app-article/app-article.module').then(m => m.AppArticleModule)
             },
             {
-                path: 'author',
-                loadChildren: () => import('./app-author/app-author.module').then(m => m.AppAuthorModule)
+                path: 'about',
+                loadChildren: () => import('./app-about/app-about.module').then(m => m.AppAboutModule)
             }
         ]
     }

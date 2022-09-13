@@ -34,9 +34,9 @@ export class AppHeaderComponent {
       show: () => true
     },
     {
-      url: "user/author",
-      nameTag: "author",
-      slug: "header.author",
+      url: "user/about",
+      nameTag: "about",
+      slug: "header.about",
       show: () => true
     },
     {

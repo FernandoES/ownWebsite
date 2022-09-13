@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppAuthorComponent } from './app-author.component';
+import { AppAboutComponent } from './app-about.component';
 
 export const routes: Routes = [{
     path: '',
-    component: AppAuthorComponent
+    component: AppAboutComponent
 }];
 
 @NgModule({
