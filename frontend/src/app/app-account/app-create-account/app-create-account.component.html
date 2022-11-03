@@ -7,7 +7,7 @@
         </div>
         <div [fxLayout]="'row'">
             <label for="name" [fxFlex]="'0 0 25%'">{{ "common.name" | ownLanguage }}:</label>
-            <input  [fxFlex]="'0 0 50%'" type="text" id="name" #emailControl="ngModel" name placeholder="{{ 'common.name' | ownLanguage }}" required name="name" [(ngModel)]="userName"/>
+            <input  [fxFlex]="'0 0 50%'" type="text" id="name" #nameControl="ngModel" name placeholder="{{ 'common.name' | ownLanguage }}" required name="name" [(ngModel)]="userName"/>
         </div>
         <div [fxLayout]="'row'">
             <label for="password" [fxFlex]="'0 0 25%'">{{ "common.password" | ownLanguage }}:</label>
