@@ -12,7 +12,7 @@
     </div>
     <div name="buttons" class="buttons" *ngIf="!loginForm.pristine">
         <button class="btn waves-effect waves-light blue" (click)="resetForm()" type="button">{{ "common.cancel" | ownLanguage }}</button>
-        <button class="btn waves-effect waves-light blue">{{ "common.send" | ownLanguage }}</button>
+        <button id="send" class="btn waves-effect waves-light blue">{{ "common.send" | ownLanguage }}</button>
     </div>
 </mat-card>
 </form>
