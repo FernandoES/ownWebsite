@@ -36,8 +36,8 @@ describe('AppLogoutComponent ', () => {
     });
     
     it('should have image',async () => {
-        const image = fixture.debugElement.queryAll(By.css('img'));
-        expect(image).toBeTruthy();
+        const images = fixture.debugElement.queryAll(By.css('img'));
+        expect(images.length).toBe(1);
     });
     
 
