@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { map } from 'rxjs';
 import { NotificationService } from 'src/utils/notification.service';
 import { AppAccountService, Petition } from '../app-account.service';
 
