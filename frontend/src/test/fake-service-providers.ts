@@ -1,6 +1,6 @@
 import { Component, Pipe, PipeTransform } from "@angular/core";
 import { Routes } from "@angular/router";
-import { of, Subject } from "rxjs";
+import { Observable, of, Subject } from "rxjs";
 import { Petition } from "src/app/app-account/app-account.service";
 import { IBlogEntry } from "src/app/app-user/app-user.service";
 
@@ -19,16 +19,13 @@ export class TestAppAccountService {
     logged = false;
     loggedIn$ = new Subject<boolean>();
     sendLogin(mail: string, password: string) {
-        console.log('login Sent');
         return of(`${mail}${password}`);
     }
     acceptPetition(petition: Petition) {
         return of('');
     }
     fetchAccountPetitions() {
-        console.log("fetching petitions");
-        
-    return of({accountPetitions: petitions});
+        return of({accountPetitions: petitions});
     }
 }
 
@@ -82,3 +79,10 @@ export const fakeBlogEntry: IBlogEntry = {
     imageName: "imageNameTest",
     imagePath: "imagePathTest",
 }
+
+export const streamToBeListed$: Observable<any> = of( [{
+    title: "firstTestTitle",
+},
+{
+    title: "secondTestTitle"
+}]);
