@@ -2,8 +2,8 @@
     <div fxLayout="column">
         <h1>{{ entry.title }}</h1>
         <div name="editButtons" fxLayout="row">
-            <mat-icon class="clickable-text" *ngIf="showDeleteButton" (click)="deleteClick.next(entry)">delete</mat-icon>
-            <mat-icon class="clickable-text" *ngIf="showEditButton" (click)="editClick.next(entry)">edit</mat-icon>
+            <mat-icon  *ngIf="showDeleteButton" class="clickable-text" (click)="deleteClick.next(entry)">delete</mat-icon>
+            <mat-icon *ngIf="showEditButton" class="clickable-text" (click)="editClick.next(entry)">edit</mat-icon>
         </div>
         <img *ngIf="entry.imagePath" class="image" alt="img" [src]="entry.imagePath" width="500">
             <div [fxLayout]="'row'" name="author">

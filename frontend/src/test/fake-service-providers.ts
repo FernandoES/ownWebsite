@@ -2,6 +2,7 @@ import { Component, Pipe, PipeTransform } from "@angular/core";
 import { Routes } from "@angular/router";
 import { of, Subject } from "rxjs";
 import { Petition } from "src/app/app-account/app-account.service";
+import { IBlogEntry } from "src/app/app-user/app-user.service";
 
 export const petitions = [{
     userName: 'userName1',
@@ -71,3 +72,13 @@ export class DummyComponent {}
 export const routes: Routes = [
     {path: 'test', component: DummyComponent}
 ];
+
+export const fakeBlogEntry: IBlogEntry = {
+    title: "titleTest",
+    body: "bodyTest",
+    _id: "_idTest",
+    authorName: "authorNameTest",
+    authorMail: "authorMailTest",
+    imageName: "imageNameTest",
+    imagePath: "imagePathTest",
+}
