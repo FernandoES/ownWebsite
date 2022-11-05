@@ -1,4 +1,5 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Component, Pipe, PipeTransform } from "@angular/core";
+import { Routes } from "@angular/router";
 import { of, Subject } from "rxjs";
 import { Petition } from "src/app/app-account/app-account.service";
 
@@ -34,9 +35,39 @@ export class TestNotificationService {
     success() {}
 }
 
+export class TestAppArticleService {
+    
+    fetchSigleArticle(id: string) {
+        return of({});
+    }
+
+    fetchImage(imageName: string) {
+        return of({});
+    }
+
+    deleteArticle(articleId: string) {
+        return of({});
+    }
+}
+
+export class FakeRoute {
+    navigateByUrl(...args: any[]) {
+        return new Promise(() => {});
+    }
+}
+
 @Pipe({ name: 'ownLanguage' })
 export class TestLanguagePipe implements PipeTransform {
     transform(value: any, options?: any) {
         return value;
     }
 }
+
+@Component({
+    template: ''
+})
+export class DummyComponent {}
+
+export const routes: Routes = [
+    {path: 'test', component: DummyComponent}
+];
