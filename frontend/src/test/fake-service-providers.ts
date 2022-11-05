@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { of } from "rxjs";
+import { of, Subject } from "rxjs";
 import { Petition } from "src/app/app-account/app-account.service";
 
 export const petitions = [{
@@ -14,6 +14,8 @@ export const petitions = [{
 }
 ] as Petition[];
 export class TestAppAccountService {
+    logged = false;
+    loggedIn$ = new Subject<boolean>();
     sendLogin(mail: string, password: string) {
         console.log('login Sent');
         return of(`${mail}${password}`);
