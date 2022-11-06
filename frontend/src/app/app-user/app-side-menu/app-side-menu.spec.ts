@@ -6,14 +6,13 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppSideMenuRoutingModule } from './app-side-menu-routing.module';
-import {MatMenuHarness } from '@angular/material/menu/testing';
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { FakeUserService, routes, TestLanguagePipe } from 'src/test/fake-service-providers';
 import { UserService } from '../app-user.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonHarness} from '@angular/material/button/testing';
+import { By } from '@angular/platform-browser';
 
 describe('AppSideMenuComponent: ', () => {
     let component: AppSideMenuComponent;
@@ -52,13 +51,8 @@ describe('AppSideMenuComponent: ', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should load three options',async () => {
-        fixture.whenStable().then(async ()=> {
-            const buttonHarness = await loader.getHarness(MatButtonHarness);
-            await buttonHarness.click();
-            const matMenuHarness = await loader.getHarness(MatMenuHarness);
-            const items = await matMenuHarness.getItems();
-            expect(items.length).toBe(3);
-        });
+    it('should contain icon', ()=>  {
+        const icon = fixture.debugElement.query(By.css("mat-icon"));
+        expect(icon).toBeTruthy();
     });
 });

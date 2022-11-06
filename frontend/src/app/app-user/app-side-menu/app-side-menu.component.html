@@ -8,7 +8,8 @@
                 <input 
                 #articleSearchInput="" 
                 [matAutocomplete]="articleSearchAutocomplete" 
-                matInput="matInput" 
+                matInput="matInput"
+                class="m-sm"
                 (input)="onArticleSearchChange(articleSearchInput.value)" 
                 (keydown.enter)="$event.preventDefault(); articleSearchInput.value=''" 
                 placeholder="{{ 'sideMenu.searchEntry' | ownLanguage }}" 
