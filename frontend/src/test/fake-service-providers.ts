@@ -19,6 +19,8 @@ export class TestAppAccountService {
     logged = false;
     loggedIn$ = new Subject<boolean>();
     sendLogin(mail: string, password: string) {
+        this.logged = true;
+        this.loggedIn$.next(true);
         return of(`${mail}${password}`);
     }
     acceptPetition(petition: Petition) {
