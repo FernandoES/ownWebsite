@@ -4,7 +4,7 @@
 <mat-menu class="mat-menu" #userMenu="matMenu" yPosition="below">
         <div class="m-sm" mat-menu-item (click)="goToLatestArticle($event)">{{ "sideMenu.lastArticle" | ownLanguage }}</div>
         <div class="m-sm" mat-menu-item (click)="goToRandomArticle($event)">{{ "sideMenu.randomArticle" | ownLanguage }}</div>
-        <div class="m-sm">
+        <div class="m-sm" mat-menu-item>
                 <input 
                 #articleSearchInput="" 
                 [matAutocomplete]="articleSearchAutocomplete" 
