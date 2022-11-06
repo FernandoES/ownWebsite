@@ -76,7 +76,6 @@ export const fakeBlogEntry: IBlogEntry = {
     _id: "_idTest",
     authorName: "authorNameTest",
     authorMail: "authorMailTest",
-    imageName: "imageNameTest",
     imagePath: "imagePathTest",
 }
 
@@ -86,3 +85,13 @@ export const streamToBeListed$: Observable<any> = of( [{
 {
     title: "secondTestTitle"
 }]);
+
+export class FakeUserService {
+    fetchArticlesList() {
+        return of([fakeBlogEntry]);
+    }
+}
+
+export class FakeSuggestionsService {
+    
+}
